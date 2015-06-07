@@ -1,0 +1,5 @@
+/* archive thematic */
+#thematic_node_set{}
+#thematic_node_set li{padding:10px;border:5px solid #fff}
+#thematic_node_set li.hover{border:5px dashed #3d6dcc}
+

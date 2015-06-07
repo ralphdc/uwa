@@ -1,0 +1,1 @@
+﻿CKEDITOR.plugins.setLang('uwapaging', 'en', {title: 'UWA PageBreak'});

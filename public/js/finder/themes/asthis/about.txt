@@ -1,0 +1,9 @@
+This folder contains files for designing AsThis visual theme for KCFinder
+
+Theme Details:
+
+Project:  KCFinder - http://kcfinder.sunhater.com
+Version:  2.51
+Author:   C.B.Lee <cblee@asthis>
+Licenses: GPLv2 - http://www.opensource.org/licenses/gpl-2.0.php
+          LGPLv2 - http://www.opensource.org/licenses/lgpl-2.1.php

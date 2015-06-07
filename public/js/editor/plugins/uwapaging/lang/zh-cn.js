@@ -1,0 +1,1 @@
+﻿CKEDITOR.plugins.setLang('uwapaging', 'zh-cn', {title: 'UWA 分页'});

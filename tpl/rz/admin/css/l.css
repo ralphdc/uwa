@@ -1,0 +1,9 @@
+body{background:url(../img/login_bg.gif)}
+
+/* loginForm */
+#loginForm{width:600px;border:2px solid #fff}
+#loginForm dt{background:url(../img/repeat_x_bg.gif);color:#fff}
+#loginForm .inputTitle{padding:5px 10px;text-align:right}
+#loginTipBox{border-left:2px solid #e5e5e5;padding:0 0 0 18px}
+#loginTip{width:200px;height:120px;background:url(../img/login_tip.png)}
+

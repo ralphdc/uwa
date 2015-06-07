@@ -1,0 +1,12 @@
+#
+# robots.txt for UWA 2.X
+#
+
+User-agent: *
+Disallow: /cfg/
+Disallow: /core/
+Disallow: /lang/
+Disallow: /lib/
+Disallow: /public/
+Disallow: /runtime/
+Disallow: /tpl/

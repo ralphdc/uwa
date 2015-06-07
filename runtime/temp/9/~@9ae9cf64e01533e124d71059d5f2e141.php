@@ -1,0 +1,3 @@
+<?php
+//000000003600a:1:{i:0;a:16:{s:18:"archive_channel_id";s:1:"1";s:7:"ac_name";s:12:"文章频道";s:8:"ac_thumb";s:41:"/u/channel/201506/06/bc609e3e2807348e.jpg";s:11:"ac_keywords";s:0:"";s:14:"ac_description";s:0:"";s:12:"ac_parent_id";s:1:"0";s:17:"ac_display_switch";s:1:"1";s:16:"ac_display_order";s:2:"10";s:14:"ac_view_ml_ids";a:1:{i:0;s:1:"0";}s:13:"ac_add_ml_ids";a:1:{i:0;s:1:"0";}s:6:"ac_url";s:75:"http://localhost:90/index.php?c=archive&a=show_channel&archive_channel_id=1";s:8:"ac_url_o";s:75:"http://localhost:90/index.php?c=archive&a=show_channel&archive_channel_id=1";s:16:"archive_model_id";s:1:"2";s:8:"am_alias";s:7:"article";s:7:"am_name";s:6:"文章";s:9:"am_status";s:1:"1";}}
+?>

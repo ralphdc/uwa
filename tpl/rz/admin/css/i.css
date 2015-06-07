@@ -1,0 +1,57 @@
+/* index */
+#header{position:absolute;top:0;left:0;z-index:2;width:100%;height:90px}
+#header #mainNav{position:relative;min-width:800px;height:59px;border-bottom:1px solid #3d5c99;_overflow:hidden;background:url(../img/repeat_x_bg.gif) 0 0 repeat-x;color:#fff}
+#header #mainNav #logo{float:left;width:200px;height:59px;background:url(../img/admin_logo.png) 0 0  no-repeat}
+#header #mainNav #logo h1{text-indent:-9999px;line-height:59px;font-size:24px;font-weight:bold}
+#header #mainNav #mainMenu{float:left;position:relative;height:59px;text-shadow:1px 1px 1px rgba(255, 255, 255, 0.2)}
+#header #mainNav #mainMenu li{float:left;margin:30px 4px 0 0;padding:0 10px;height:29px;border:1px solid #528fcc;border-bottom:none;color:#def;font-weight:bold;font-size:14px;background:url(../img/repeat_x_bg.gif) 0 0 repeat-x;cursor:pointer;border-radius:4px 4px 0 0}
+#header #mainNav #mainMenu li.current,#header #mainNav #mainMenu li.hover{border:1px solid #3d5c99;border-bottom:none;color:#333;background:url(../img/repeat_x_bg.gif) 0 -90px repeat-x}
+#header #statusInfo{position:absolute;top:0;right:0;padding:0 0 0 7px;height:24px;color:#666;border-radius:0 0 0 10px;background:#fff;box-shadow:0 0 3px rgba(0,0,0,0.5); z-index:99}
+#header #statusInfo ul{_zoom:1;_display:inline;margin:0;height:20px;padding:1px 0 3px;_padding:2px 0 3px;line-height:20px;font-size:12px}
+#header #statusInfo ul li.top{float:left;padding:0 5px}
+#header #statusInfo ul li.a{color:#3d6dcc}
+#header #statusInfo ul li#shortcutSwitch div{position:relative;padding:0 5px 1px;margin:-1px 0 0;border:2px solid #cfd6e5;color:#369;background:#eef2f7;font-weight:bold;line-height:18px;z-index:102}
+#header #statusInfo ul li#shortcutSwitch.hover div{margin:0;border:2px solid #369;border-bottom:none;background:#fff}
+#header #statusInfo ul li #shortcutItems{display:block;position:absolute;width:auto;height:auto;top:20px;left:auto;right:5px;z-index:101;border:2px solid #369;background:#fff;zoom:1;box-shadow:0 0 5px rgba(0,0,0,0.3);display:none}
+#header #statusInfo ul li #shortcutItems li{padding:2px 10px 3px}
+#header #positionBar{position:relative;padding:0 10px;height:29px;overflow:hidden;border-bottom:1px solid #aaa;color:#666;font-size:12px;line-height:29px;background:url(../img/repeat_x_bg.gif) 0 -120px repeat-x;text-shadow:1px 1px 1px rgba(255, 255, 255, 0.8)}
+#header #positionBar #menuControl{float:left;padding-right:15px;overflow:hidden}
+#header #positionBar #menuControl span{padding-right:5px}
+#header #positionBar #menuControl span.hover{color:#000}
+#header #positionBar #position{float:left;padding:0 0 0 30px;background:url(../img/c.png) 0 0 no-repeat}
+#header #positionBar #official_link{position:absolute;right:10px}
+#header #positionBar #official_link a{padding-left:5px;text-decoration:none;color:#666}
+#header #positionBar #official_link a.hover{color:#000}
+#sidebar{position:absolute;top:90px;bottom:30px;left:0;z-index:1;width:199px;overflow:auto;background:#eef2f7;border-right:1px solid #b8c0cc}
+#sidebar .subMenu{}
+#sidebar .subMenu dt{padding:5px 10px;border-top:1px solid #e5eeff;border-bottom:1px solid #b8becc;color:#515b65;font-weight:bold;background:#cfd6e5}
+#sidebar .subMenu dt.hover{color:#292e33;border-bottom:1px solid #b8c0cc}
+#sidebar .subMenu dd{border-top:1px solid #e5eeff;color:#515b65;font-size:12px}
+#sidebar .subMenu dd li{padding:5px 20px}
+#sidebar .subMenu dd li.current,#sidebar .subMenu dd li.hover{background:#3d6dcc;color:#fff;box-shadow:0 0 5px rgba(0,0,0,0.2) inset;text-shadow:0 0 5px rgba(0,0,0,0.5);font-weight:bold}
+#main{position:absolute;top:90px;right:0;bottom:30px;left:200px;z-index:1;overflow:hidden}
+#main #mainiFrame{overflow-x:hidden}
+#footer{position:absolute;bottom:0;z-index:2;width:100%;height:29px;border-top:1px solid #999;font-size:12px;background:url(../img/repeat_x_bg.gif) 0 -120px repeat-x;box-shadow:0 3px 3px rgba(0,0,0,0.2) inset}
+#iframeTabs{margin:-1px 0 0;padding:0 360px 0 200px;z-index:4}
+#iframeTabs li{margin:0 2px;padding:0;float:left;height:24px;line-height:24px;color:#333;text-shadow:1px 1px 1px rgba(255, 255, 255, 0.5);background:#ccc;border-radius:0 0 5px 5px;border:1px solid #aaa;border-top:1px solid #999;box-shadow:0 3px 3px rgba(0,0,0,0.2) inset,0 2px 2px rgba(0,0,0,0.2)}
+#iframeTabs li span{padding-left:9px}
+#iframeTabs li.current,#iframeTabs li.hover{background:#fff;color:#222;border:1px solid #999;border-top:1px solid #fff;box-shadow:0 2px 2px rgba(0,0,0,0.3)}
+#iframeTabs li b.hover{color:#f00}
+#copyright{padding:0 10px;position:absolute;top:0;right:0;text-align:right;color:#666;text-shadow:1px 1px 1px rgba(255, 255, 255, 0.8);z-index:3}
+
+/*operationMap*/
+#operationMap{background:url(../img/operation_map_bg.png) right bottom no-repeat}
+#operationMap dl.mapTop{float:left;padding:0 3px;min-width:120px}
+#operationMap .bigItem{padding:0 10px;height:30px;line-height:30px;color:#fff;background:url(../img/repeat_x_bg.gif) 0 0 repeat-x;font-weight:bold;font-size:14px}
+#operationMap .mapItem dt{padding:0 10px;color:#999;background:#cfd6e5;font-weight:bold;color:#515b65}
+#operationMap .mapItem dd{background:#f2f2f2}
+#operationMap .item li{padding:0 10px;font-size:12px}
+#operationMap .item li.hover{color:#06c}
+
+/* screenLock */
+#screenLock{position:absolute;top:0;left:0;z-index:2000;width:100%;height:100%;background:#3a5ea6 url(../img/screen_lock_bg.png) bottom right no-repeat;box-shadow:0 0 9px rgba(0,0,0,0.5)}
+#screenLock dl{position:absolute;top:50%;left:50%;width:300px;height:120px;margin:-100px 0 0 -180px;padding:30px;font-size:14px;background:#fff;border-radius:5px;box-shadow:0 0 5px rgba(0,0,0,0.5)}
+#screenLock dl dd{padding:20px 0}
+#screenLock dl dd li{padding:5px 0}
+#screenLock dl dd li #lockPassword{width:290px}
+

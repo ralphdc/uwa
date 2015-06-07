@@ -1,0 +1,45 @@
+/* mainFrame */
+html{overflow-x:hidden !important;overflow-y:scroll !important}
+body{overflow-x:hidden !important;padding:20px}
+
+/*Asthis tab*/
+dl.atab{}
+dl.atab dt{height:25px;border-bottom:2px solid #3d6dcc;padding:0 10px}
+dl.atab dt strong{float:left;display:block;height:25px;padding:0 10px;line-height:25px;text-align:center;color:#333;cursor:pointer;background:url(../img/repeat_x_bg.gif) 0 -120px repeat-x}
+dl.atab dt strong.atabOn{position:relative;color:#fff;font-weight:bold;background:url(../img/repeat_x_bg.gif) 0 -60px repeat-x}
+dl.atab dd{padding:10px;clear:both}
+
+/*Asthis box*/
+dl.abox{}
+dl.abox dt{height:25px;border-bottom:2px solid #3d6dcc;padding:0 10px}
+dl.abox dt strong{float:left;display:block;height:25px;padding:0 10px;line-height:25px;text-align:center;color:#666;position:relative;color:#fff;font-weight:bold;background:url(../img/repeat_x_bg.gif) 0 -60px repeat-x}
+dl.abox dt span{float:left;display:block;height:25px;line-height:25px;text-align:center;color:#333;position:relative;background:url(../img/repeat_x_bg.gif) 0 -120px repeat-x}
+dl.abox dt span a{display:block;padding:0 10px;color:#333;text-decoration:none;font-weight:bold}
+dl.abox dd{padding:10px;clear:both}
+
+/* mainTips */
+.mainTips{margin:0 0 10px;padding:10px;border:1px solid #e5e5e5;background:#fafafa}
+
+/* formTable */
+.formTable{width:100%;font-size:12px !important}
+.formTable td.inputTitle{font-weight:bold}
+.formTable td.inputArea{padding:5px 0;border-bottom:1px solid #e5e5e5}
+.formTable label{padding:0 10px 0 0}
+.formTable td.inputTip{color:#999;padding:5px 0;border-bottom:1px solid #e5e5e5}
+#operation{padding:10px 0 20px}
+
+/* listTable */
+.listTable{width:100%;border-top:1px solid #e5e5e5;border-left:1px solid #e5e5e5;font-size:12px !important}
+.listTable tr{}
+.listTable th{border-right:1px solid #ccc;border-bottom:1px solid #ccc;padding:0 10px;height:29px;line-height:29px;*line-height:28px;background:url(../img/repeat_x_bg.gif) 0 -90px repeat-x}
+.listTable td{border-right:1px solid #e5e5e5;border-bottom:1px solid #e5e5e5;padding:5px 10px;line-height:20px}
+.listTable span.toggle_tr{display:inline-block;padding:0 5px 0 0;cursor:pointer}
+.listTable label{padding:0 10px 0 0}
+
+/*  uwa addon buttons */
+#uwa_totop{position:relative;top:0;z-index:5}
+#uwa_tobottom{position:relative;bottom:0;z-index:5}
+#totop_button{position:fixed;z-index:99;bottom:62px;right:10px;padding:0;margin:0;border:0;line-height:24px}
+#refresh_button{position:fixed;z-index:99;bottom:36px;right:10px;padding:0;margin:0;border:0;line-height:24px}
+#tobottom_button{position:fixed;z-index:99;bottom:10px;right:10px;padding:0;margin:0;border:0;line-height:24px}
+
