@@ -290,6 +290,10 @@ class IndexModl extends Modl {
 								'm_name' => L('VOTE'),
 								'm_alias' => 'vote',
 								'm_url' => 'vote/list_vote'),
+						    array(
+						        'm_name' => L('CONTENT'),
+						        'm_alias' => 'content',
+						        'm_url' => 'content/list_content'),
 							),
 						),
 					)),
