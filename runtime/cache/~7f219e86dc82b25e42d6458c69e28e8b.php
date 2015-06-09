@@ -1,4 +1,4 @@
-<?php /* PFA Template Cache File. Create Time:2015-06-10 02:06:13 */ ?>
+<?php /* PFA Template Cache File. Create Time:2015-06-10 02:37:11 */ ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,7 +10,7 @@
 <body>
 <form id="formList" action="" method="post">
 <dl class="abox">
-	<dt><strong><?php echo(L("SINGLE_PAGE_LIST")); ?></strong></dt>
+	<dt><strong><?php echo(L("CONTENT_PAGE_LIST")); ?></strong></dt>
 	<dd>
 		<table class="listTable">
 			<tr>
@@ -20,23 +20,20 @@
 				<th scope="col"><?php echo(L("GROUP")); ?></th>
 				<th scope="col"><?php echo(L("TITLE")); ?></th>
 				<th scope="col"><?php echo(L("EDIT_TIME")); ?></th>
-				<th scope="col"><?php echo(L("HTML_SWITCH")); ?></th>
 				<th scope="col"><?php echo(L("MANAGE")); ?></th>
 			</tr>
 			<?php if(isset($_SPL) and is_array($_SPL)) : foreach($_SPL as $sp) : ?>
 			<tr>
 				<td><input name="single_page_id[<?php echo($sp['single_page_id']); ?>]" type="checkbox" value="<?php echo($sp['single_page_id']); ?>"></td>
 				<td><input type="text" class="i required" size="6" maxlength="10" name="sp_display_order[<?php echo($sp['single_page_id']); ?>]" value="<?php echo($sp['sp_display_order']); ?>"></td>
-				<td><?php echo($sp['single_page_id']); ?></td>
-				<td><?php echo($sp['sp_group']); ?></td>
-				<td><?php echo($sp['sp_title']); ?></td>
+				<td><?php echo($sp['content_id']); ?></td>
+				<td><?php echo($sp['content_group']); ?></td>
+				<td><?php echo($sp['content_title']); ?></td>
 				<td>
-					<?php echo(date('Y-m-d', $sp['sp_edit_time'])); ?>
+					<?php echo(date('Y-m-d', $sp['content_edit_time'])); ?>
 				</td>
-				<td><?php if(0==$sp['sp_is_html']) :  ?><span class="br_3 br_r p_0_2 fs_11 fc_r"><?php echo(L("OFF")); ?></span><?php else : ?><span class="br_3 br_g p_0_2 fs_11 fc_g"><?php echo(L("ON")); ?></span><?php endif; ?></td>
-				<td><a target="_blank" href="<?php echo(Url::U("home@single_page/show_single_page?single_page_id={$sp['single_page_id']}")); ?>"><?php echo(L("PREVIEW")); ?></a> | <a href="<?php echo(Url::U("single_page/edit_single_page?single_page_id={$sp['single_page_id']}")); ?>"><?php echo(L("EDIT")); ?></a> | <a href="<?php echo(Url::U("single_page/delete_single_page_do?single_page_id={$sp['single_page_id']}&timeKey={$_TK['timeKey']}&token={$_TK['token']}")); ?>" onclick="javascript:return delete_confirm();"><?php echo(L("DELETE")); ?></a>
-					<a class="btn_l" href="<?php echo(Url::U("single_page/build_url_do?single_page_id={$sp['single_page_id']}&timeKey={$_TK['timeKey']}&token={$_TK['token']}")); ?>"><?php echo(L("BUILD_URL")); ?></a>
-					<a class="btn_l" href="<?php echo(Url::U("single_page/build_html_do?single_page_id={$sp['single_page_id']}&timeKey={$_TK['timeKey']}&token={$_TK['token']}")); ?>"><?php echo(L("BUILD_HTML")); ?></a></td>
+				<td><a href="<?php echo(Url::U("content/edit_content?content_id={$sp['content_id']}")); ?>"><?php echo(L("EDIT")); ?></a> | <a href="<?php echo(Url::U("single_page/delete_single_page_do?single_page_id={$sp['single_page_id']}&timeKey={$_TK['timeKey']}&token={$_TK['token']}")); ?>" onclick="javascript:return delete_confirm();"><?php echo(L("DELETE")); ?></a>
+					</td>
 			</tr>
 			<?php endforeach; endif; ?>
 		</table>
@@ -98,7 +95,7 @@
 <div id="operation">
 	<input name="timeKey" type="hidden" value="<?php echo($_TK['timeKey']); ?>">
 	<input name="token" type="hidden" value="<?php echo($_TK['token']); ?>">
-	<a class="btn_l" href="<?php echo(Url::U("single_page/add_single_page")); ?>"><?php echo(L("ADD_SINGLE_PAGE")); ?></a>
+	<a class="btn_l" href="<?php echo(Url::U("content/add_content")); ?>"><?php echo(L("ADD_CONTENT")); ?></a>
 	<span class="btn_l submit" action="<?php echo(Url::U("single_page/update_single_page_do")); ?>" to="#formList"><?php echo(L("UPDATE_SELECTED")); ?></span>
 	<span class="btn_l submit" action="<?php echo(Url::U("single_page/delete_single_page_do")); ?>" to="#formList"><?php echo(L("DELETE_SELECTED")); ?></span>
 	<input class="btn_l" type="reset" value="<?php echo(L("RESET")); ?>" />

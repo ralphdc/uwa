@@ -68,6 +68,7 @@ class Modl extends Pfa {
 
 	/* check table information */
 	protected function check_tableInfo() {
+	    //exit;
 		if(empty($this->fields)) {
 			if(C('DB.FIELDS_CACHE')) {
 				$this->fields = F('~fields/~' . $this->name);
@@ -294,7 +295,12 @@ class Modl extends Pfa {
 	public function get_lastSql() {
 		return $this->db->get_lastSql();
 	}
-
+    
+	public function dbdg()
+	{
+	    $sql = $this->get_lastSql();
+	    echo $sql;
+	}
 	/* insert data */
 	public function insert($data = '', $options = array(), $replace = false) {
 		if(empty($data)) {
@@ -307,10 +313,24 @@ class Modl extends Pfa {
 				return false;
 			}
 		}
+		
 		$data = $this->deal_mq($data); // deal with magic quote
+		
+		
+		
+		
 		$data = $this->facade($data); // deal with data
+		
+		
+		
+		
 		$options = $this->parse_options($options); // parse database operation parameters
+		
+		
+		
 		$result = $this->db->insert($data, $options, $replace); // write data to database
+		//$sql = $this->db->get_lastSql();
+		//print_r($sql); exit;
 		if(false !== $result) {
 			$insertId = $this->get_lastInsID();
 			if($insertId) {

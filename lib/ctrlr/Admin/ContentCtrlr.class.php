@@ -13,53 +13,52 @@
 defined('PFA_PATH') or exit('Access Denied');
 
 class ContentCtrlr extends ManageCtrlr {
-	public function list_content_page() {
+	public function list_content() {
 		/* get paging */
 		$_GET[C('VAR.PAGE')] = ARequest::get(C('VAR.PAGE')) ? ARequest::get(C('VAR.PAGE')) : 1;
 		$rowsNum = M('Content')->count();
-		$p = new APage($rowsNum, 20, Url::U('single_page/list_single_page?' . C('VAR.PAGE') . '=_page_'));
+		$p = new APage($rowsNum, 20, Url::U('content/list_content?' . C('VAR.PAGE') . '=_page_'));
 		$this->assign('PAGING', $p->get_paging());
 		$limit = $p->get_limit();
 
-		$_SPL = M('Content')->get_contentPageList('', '`sp_display_order` ASC', $limit);
+		$_SPL = M('Content')->get_contentPageList('', '`content_display_order` ASC', $limit);
 		$this->assign('_SPL', $_SPL);
-
+        
 		$this->display();
 	}
 
-	public function add_single_page() {
+	public function add_content() {
 		$this->display();
 	}
-	public function add_single_page_do() {
+	public function add_content_do() {
 		if(!check_token()) {
 			$this->error(L('DATA_INVALID'), AServer::get_preUrl());
 		}
 
 		$data = ARequest::get();
-		$data['sp_edit_time'] = time();
+		$data['content_edit_time'] = time();
 
-		$result = M('SinglePage')->add_single_page($data);
+		$result = M('Content')->add_content($data);
 		if(!empty($result['error'])) {
 			M('AdminLog')->add_log(ASession::get('m_userid'), L('ADD_SINGLE_PAGE') . ': ' . $result['error'], 0);
-			$this->error($result['error'], Url::U('single_page/list_single_page'));
+			$this->error($result['error'], Url::U('content/list_content'));
 		}
 		/* build now */
-		$data['single_page_id'] = $result['data'];
+		$data['content_id'] = $result['data'];
 		if(isset($data['build_now']) and 1 == $data['build_now']) {
 			M('SinglePage')->build_url($data['single_page_id']);
 			ARequest::set('single_page_id', $data['single_page_id']);
 			$this->build_html_do();
 		}
-		M('AdminLog')->add_log(ASession::get('m_userid'), L('ADD_SINGLE_PAGE') . ': ID[' . $result['data'] . ']');
-		$this->success(L('ADD_SUCCESS'), Url::U('single_page/list_single_page'));
+		M('AdminLog')->add_log(ASession::get('m_userid'), L('ADD_CONTENT') . ': ID[' . $result['data'] . ']');
+		$this->success(L('ADD_SUCCESS'), Url::U('content/list_content'));
 	}
 
-	public function edit_single_page() {
-		$singlePageId = ARequest::get('single_page_id');
-
-		$_SPI = M('SinglePage')->get_singlePageInfo($singlePageId);
+	public function edit_content() {
+		$singlePageId = ARequest::get('content_id');
+		$_SPI = M('Content')->get_contentInfo($singlePageId);
 		if(empty($_SPI)) {
-			$this->error(L('ITEM_NOT_EXIST'), Url::U('single_page/list_single_page'));
+			$this->error(L('ITEM_NOT_EXIST'), Url::U('content/list_content'));
 		}
 		$this->assign('_SPI', $_SPI);
 

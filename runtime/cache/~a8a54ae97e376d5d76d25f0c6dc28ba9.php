@@ -1,4 +1,4 @@
-<?php /* PFA Template Cache File. Create Time:2015-06-06 01:22:51 */ ?>
+<?php /* PFA Template Cache File. Create Time:2015-06-10 02:26:13 */ ?>
 
 var member_id = '<?php echo(ACookie::get("member_id")); ?>';
 var member_userid = '<?php echo(ACookie::get("m_userid")); ?>';

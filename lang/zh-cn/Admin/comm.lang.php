@@ -313,12 +313,17 @@ return array (
   'DELETE_REPORT' => '删除报告',
 /* {uwa_path}/lib/ctrlr/Admin/SinglePageCtrlr.class.php */
   'ADD_SINGLE_PAGE' => '添加单页',
+    'ADD_CONTENT' => '添加内容区块',
   'EDIT_SINGLE_PAGE' => '编辑单页',
   'DELETE_SINGLE_PAGE' => '删除单页',
   'BUILD_SINGLE_PAGE_URL' => '生成单页地址',
   'BUILD_SUCCESS' => '生成成功',
   'BUILD_SINGLE_PAGE_HTML' => '生成单页html文件',
   'SKIP' => '跳过',
+    /* {uwa_path}/lib/ctrlr/Admin/ContentCtrlr.class.php */
+    'ADD_CONTENT' => '添加内容区块',
+    'EDIT_CONTENT' => '编辑内容区块',
+    'DELETE_CONTENT' => '删除内容区块',
 /* {uwa_path}/lib/ctrlr/Admin/TagCtrlr.class.php */
   'EDIT_TAG_OPTION' => '编辑 Tag 标签选项',
   'ADD_TAG' => '添加 Tag 标签',
@@ -1554,7 +1559,16 @@ return array (
   'SP_DESCRIPTION_TIP' => '单页描述',
 /* {uwa_path}/tpl/default/admin/single_page/edit_single_page.php */
 /* {uwa_path}/tpl/default/admin/single_page/list_single_page.php */
-  'SINGLE_PAGE_LIST' => '单页列表',
+  'CONTENT_LIST' => '内容区块列表',
+    'CT_TITLE_TIP' => '内容区块标题',
+    'CT_GROUP_TIP' => '内容区块分组, 在 conent_list 标签中用 group 限制',
+    'CT_DISPLAY_ORDER_TIP' => '内容区块显示顺序',
+    'CT_CONTENT_TIP' => '内容区块的内容',
+    'CT_KEYWORDS_TIP' => '内容区块关键词',
+    'CT_DESCRIPTION_TIP' => '内容区块描述',
+    /* {uwa_path}/tpl/default/admin/single_page/edit_single_page.php */
+    /* {uwa_path}/tpl/default/admin/single_page/list_single_page.php */
+   'CONTENT_PAGE_LIST' => '内容区块列表',
 /* {uwa_path}/tpl/default/admin/tag/add_tag.php */
   'T_NAME_TIP' => '标签名称',
   'T_KEYWORDS_TIP' => '标签关键词, 多关键词之间用英文逗号隔开',

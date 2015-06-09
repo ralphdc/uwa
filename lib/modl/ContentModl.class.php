@@ -13,7 +13,7 @@
 defined('PFA_PATH') or exit('Access Denied');
 
 class ContentModl extends Modl {
-	public function get_contentList($where = '', $order = '', $limit = 10) {
+	public function get_contentPageList($where = '', $order = '', $limit = 10) {
 		$_SPL = $this->where($where)->order($order)->limit($limit)->select();
 		return $_SPL;
 	}
