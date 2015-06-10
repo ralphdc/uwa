@@ -55,8 +55,8 @@ class ContentCtrlr extends ManageCtrlr {
 	}
 
 	public function edit_content() {
-		$singlePageId = ARequest::get('content_id');
-		$_SPI = M('Content')->get_contentInfo($singlePageId);
+		$contentId = ARequest::get('content_id');
+		$_SPI = M('Content')->get_contentInfo($contentId);
 		if(empty($_SPI)) {
 			$this->error(L('ITEM_NOT_EXIST'), Url::U('content/list_content'));
 		}
@@ -64,79 +64,79 @@ class ContentCtrlr extends ManageCtrlr {
 
 		$this->display();
 	}
-	public function edit_single_page_do() {
+	public function edit_content_do() {
 		if(!check_token()) {
 			$this->error(L('DATA_INVALID'), AServer::get_preUrl());
 		}
 
 		$data = ARequest::get();
-		$data['sp_edit_time'] = time();
+		$data['content_edit_time'] = time();
 
-		$result = M('SinglePage')->edit_single_page($data);
+		$result = M('Content')->edit_content($data);
 		if(!empty($result['error'])) {
-			M('AdminLog')->add_log(ASession::get('m_userid'), L('EDIT_SINGLE_PAGE') . ': ID[' . $data['single_page_id'] . ']' . $result['error'], 0);
-			$this->error($result['error'], Url::U('single_page/list_single_page'));
+			M('AdminLog')->add_log(ASession::get('m_userid'), L('EDIT_CONTENT') . ': ID[' . $data['content_id'] . ']' . $result['error'], 0);
+			$this->error($result['error'], Url::U('content/list_content'));
 		}
 		/* build now */
-		if(isset($data['build_now']) and 1 == $data['build_now']) {
+		/* if(isset($data['build_now']) and 1 == $data['build_now']) {
 			M('SinglePage')->build_url($data['single_page_id']);
 			ARequest::set('single_page_id', $data['single_page_id']);
 			ARequest::set('show_progress', 'no');
 			$this->build_html_do();
-		}
-		M('AdminLog')->add_log(ASession::get('m_userid'), L('EDIT_SINGLE_PAGE') . ': ID[' . $data['single_page_id'] . ']');
-		$this->success(L('EDIT_SUCCESS'), Url::U('single_page/list_single_page'));
+		} */
+		M('AdminLog')->add_log(ASession::get('m_userid'), L('EDIT_CONTENT') . ': ID[' . $data['content_id'] . ']');
+		$this->success(L('EDIT_SUCCESS'), Url::U('content/list_content'));
 	}
 
 	/* update single page */
-	public function update_single_page_do() {
+	public function update_content_do() {
 		if(!check_token()) {
 			$this->error(L('DATA_INVALID'), AServer::get_preUrl());
 		}
 
-		$singlePageId = ARequest::get('single_page_id');
+		$singlePageId = ARequest::get('content_id');
 		$_L_ID = is_array($singlePageId) ? implode(', ', $singlePageId) : $singlePageId;
 
 		if(empty($singlePageId)) {
-			M('AdminLog')->add_log(ASession::get('m_userid'), L('EDIT_SINGLE_PAGE') . ': ' . L('ITEM_NOT_EXIST'), 0);
-			$this->error(L('ITEM_NOT_EXIST'), Url::U('single_page/list_single_page'));
+			M('AdminLog')->add_log(ASession::get('m_userid'), L('EDIT_CONTENT') . ': ' . L('ITEM_NOT_EXIST'), 0);
+			$this->error(L('ITEM_NOT_EXIST'), Url::U('content/list_content'));
 		}
 
-		$spDisplayOrder = ARequest::get('sp_display_order');
+		$spDisplayOrder = ARequest::get('content_display_order');
 		$data = array();
 		foreach($singlePageId as $k => $id) {
-			$data['single_page_id'] = $id;
-			$data['sp_display_order'] = $spDisplayOrder[$k];
-			$result = M('SinglePage')->edit_single_page($data);
+			$data['content_id'] = $id;
+			$data['content_display_order'] = $spDisplayOrder[$k];
+			$result = M('Content')->edit_content($data);
 			if(!empty($result['error'])) {
-				M('AdminLog')->add_log(ASession::get('m_userid'), L('EDIT_SINGLE_PAGE') . ': ID[' . $singlePageId . ']' . $result['error'], 0);
-				$this->error($result['error'], Url::U('single_page/list_single_page'));
+				M('AdminLog')->add_log(ASession::get('m_userid'), L('EDIT_CONTENT') . ': ID[' . $id . ']' . $result['error'], 0);
+				$this->error($result['error'], Url::U('content/list_content'));
 			}
 		}
 
-		M('AdminLog')->add_log(ASession::get('m_userid'), L('EDIT_SINGLE_PAGE') . ': ID[' . $_L_ID . ']');
-		$this->success(L('EDIT_SUCCESS'), Url::U('single_page/list_single_page'));
+		M('AdminLog')->add_log(ASession::get('m_userid'), L('EDIT_CONTENT') . ': ID[' . $_L_ID . ']');
+		$this->success(L('EDIT_SUCCESS'), Url::U('content/list_content'));
 	}
 
-	public function delete_single_page_do() {
+	public function delete_content_do() {
 		if(!check_token()) {
 			$this->error(L('DATA_INVALID'), AServer::get_preUrl());
 		}
 
-		$singlePageId = ARequest::get('single_page_id');
-		$singlePageId = is_array($singlePageId) ? $singlePageId : explode(',', $singlePageId);
-		$_L_ID = implode(', ', $singlePageId);
+		$contentId = ARequest::get('content_id');
+		$contentId = is_array($contentId) ? $contentId : explode(',', $contentId);
+		$_L_ID = implode(', ', $contentId);
 
-		foreach($singlePageId as $singlePageId) {
-			$result = M('SinglePage')->delete_single_page($singlePageId);
+		foreach($contentId as $contentId) {
+			$result = M('Content')->delete_content($contentId);
 			if(!empty($result['error'])) {
-				M('AdminLog')->add_log(ASession::get('m_userid'), L('DELETE_SINGLE_PAGE') . ': ID[' . $singlePageId . ']' . $result['error'], 0);
-				$this->error($result['error'], Url::U('single_page/list_single_page'));
+				M('AdminLog')->add_log(ASession::get('m_userid'), L('CONTENT') . ': ID[' . $contentId . ']' . $result['error'], 0);
+				$this->error($result['error'], Url::U('content/list_content'));
 			}
 		}
 
-		M('AdminLog')->add_log(ASession::get('m_userid'), L('DELETE_SINGLE_PAGE') . ': ID[' . $_L_ID . ']');
-		$this->success(L('DELETE_SUCCESS'), Url::U('single_page/list_single_page'));
+		M('AdminLog')->add_log(ASession::get('m_userid'), L('DELETE_CONTENT') . ': ID[' . $_L_ID . ']');
+		$this->success(L('DELETE_SUCCESS'), Url::U('content/list_content'));
 	}
 
 	public function build_url_do() {

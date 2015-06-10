@@ -31,7 +31,7 @@
 				<td>
 					{-:$sp['content_edit_time']|date~'Y-m-d',@me-}
 				</td>
-				<td><a href="{-url:content/edit_content?content_id={$sp['content_id']}-}">{-:@EDIT-}</a> | <a href="{-url:single_page/delete_single_page_do?single_page_id={$sp['single_page_id']}&timeKey={$_TK['timeKey']}&token={$_TK['token']}-}" onclick="javascript:return delete_confirm();">{-:@DELETE-}</a>
+				<td><a href="{-url:content/edit_content?content_id={$sp['content_id']}-}">{-:@EDIT-}</a> | <a href="{-url:content/delete_content_do?content_id={$sp['content_id']}&timeKey={$_TK['timeKey']}&token={$_TK['token']}-}" onclick="javascript:return delete_confirm();">{-:@DELETE-}</a>
 					</td>
 			</tr>
 			{-:/foreach-}

@@ -1,4 +1,4 @@
-<?php /* PFA Template Cache File. Create Time:2015-06-07 00:37:23 */ ?>
+<?php /* PFA Template Cache File. Create Time:2015-06-11 01:01:27 */ ?>
 <!DOCTYPE html> <html> <head> <meta charset="utf-8" /> <title><?php echo($_SITE['name']); ?></title> <link rel="stylesheet" type="text/css" href="/tpl/rz/home/css/rz.css" /> <meta name="keywords" content="<?php echo($_SITE['keywords']); ?>" /> <meta name="description" content="<?php echo($_SITE['description']); ?>" /> </head> <body> <div class="header"> <div class="main"> <img class="f_left" src="<?php echo($_SITE['logo']); ?>"
 			alt="<?php echo($_SITE['name']); ?>" /> <div class="f_right help"> <p class="f_gray">全国统一服务热线: 0755-82797719</p> <p class="f_blue">诚信经营 · 细心服务 · 专业产品</p> </div> <div class="clear"></div> </div> </div> <div id="nav_main"> <div class="m w_960"> <dl class="menu w_760 f_l"> <?php
 $_menu_main = M('Menu')->get_menuList('main');
@@ -24,28 +24,7 @@ if(!empty($_ASI) and 1 == $_ASI['as_status']) {
 		echo $_ASI['as_default'];
 	}
 }
-?> <div class="center"> <div class="main"> <div class="outer"> <div class="title"><h2>热销产品</h2><span>诚信经营 · 细心服务 · 专业产品</span><a href="#">[More]</a></div> <div class="inner"> <?php
-$var_asi = '_asi_12';
-$$var_asi = M('AdSpace')->get_spaceInfo('12');
-$_ASI = $$var_asi;
-if(!empty($_ASI) and 1 == $_ASI['as_status']) {
-	$var_al = '_al_12';
-	$$var_al = S('~list/~'.ltrim($var_al, '_'));
-	if(empty($$var_al)) {
-		$$var_al = M('Ad')->get_adList('12', true);
-		S('~list/~'.ltrim($var_al, '_'), $$var_al);
-	}
-	if(!empty($$var_al)) {
-		$_ASI['ad'] = $$var_al;
-		$this->assign('_ASI', $_ASI);
-		$ad = $this->fetch('home/clip/ad/tag/'.$_ASI['as_type']);
-		echo $ad;
-	}
-	else {
-		echo $_ASI['as_default'];
-	}
-}
-?> <div class="scroll_btn"> <a class="btn" id="backward" href="javascript:void(0)"><i class="icon_left"></i></a> <a class="btn" id="forward" href="javascript:void(0)"><i class="icon_right"></i></a> </div> </div> </div> <div class="outer"> <div class="title"><h2>热销产品</h2><span>诚信经营 · 细心服务 · 专业产品</span><a href="#">[More]</a></div> <div class="inner"> <?php
+?> <div class="center"> <div class="main"> <div><?php echo($CONTE); ?></div> <div class="outer"> <div class="title"><h2>热销产品</h2><span>诚信经营 · 细心服务 · 专业产品</span><a href="#">[More]</a></div> <div class="inner"> <?php
 $var_asi = '_asi_12';
 $$var_asi = M('AdSpace')->get_spaceInfo('12');
 $_ASI = $$var_asi;

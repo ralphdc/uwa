@@ -37,7 +37,7 @@ return array (
   2 => 
   array (
     'menu_id' => '2',
-    'm_name' => '文章频道',
+    'm_name' => '最新资讯',
     'm_tip' => '查看文章',
     'm_parent_id' => '0',
     'm_type' => '0',

@@ -1,4 +1,4 @@
-<?php /* PFA Template Cache File. Create Time:2015-06-10 02:37:11 */ ?>
+<?php /* PFA Template Cache File. Create Time:2015-06-11 00:21:47 */ ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -32,7 +32,7 @@
 				<td>
 					<?php echo(date('Y-m-d', $sp['content_edit_time'])); ?>
 				</td>
-				<td><a href="<?php echo(Url::U("content/edit_content?content_id={$sp['content_id']}")); ?>"><?php echo(L("EDIT")); ?></a> | <a href="<?php echo(Url::U("single_page/delete_single_page_do?single_page_id={$sp['single_page_id']}&timeKey={$_TK['timeKey']}&token={$_TK['token']}")); ?>" onclick="javascript:return delete_confirm();"><?php echo(L("DELETE")); ?></a>
+				<td><a href="<?php echo(Url::U("content/edit_content?content_id={$sp['content_id']}")); ?>"><?php echo(L("EDIT")); ?></a> | <a href="<?php echo(Url::U("content/delete_content_do?content_id={$sp['content_id']}&timeKey={$_TK['timeKey']}&token={$_TK['token']}")); ?>" onclick="javascript:return delete_confirm();"><?php echo(L("DELETE")); ?></a>
 					</td>
 			</tr>
 			<?php endforeach; endif; ?>

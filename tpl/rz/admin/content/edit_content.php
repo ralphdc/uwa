@@ -37,18 +37,7 @@
 					<input class="i" type="text" value="{-:$_SPI['content_display_order']-}" name="content_display_order" maxlength="10" size="4"> <span class="fc_gry">{-:@CONTENT_DISPLAY_ORDER_TIP-}</span>
 				</td>
 			</tr>
-			<tr>
-				<td class="inputTitle">{-:@TEMPLATE-}</td>
-				<td></td>
-			</tr>
-			<tr>
-				<td class="inputArea">
-					<input id="content_tpl" class="required i" type="text" value="{-:$_SPI['content_tpl']-}" name="content_tpl" maxlength="96" size="30"> <span class="btn_l choose_template" base_dir="home" to_id="content_tpl">{-:@CHOOSE-}</span>
-				</td>
-				<td class="inputTip">
-					<span class="fc_r">*</span> <span class="fc_gry">{-:@CONTENT_TPL_TIP-}</span>
-				</td>
-			</tr>
+			
 			<tr>
 				<td class="inputTitle">{-:@CONTENT-} <span class="fc_gry">{-:@CONTENT_CONTENT_TIP-}</span></td>
 				<td class=""></td>

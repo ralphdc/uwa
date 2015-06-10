@@ -1,4 +1,4 @@
-<?php /* PFA Template Cache File. Create Time:2015-06-06 11:59:17 */ ?>
+<?php /* PFA Template Cache File. Create Time:2015-06-11 01:06:53 */ ?>
 <?php if(!is_null($_fi['data']) and isset($_fi['data'][$_fi['tag']])) {
 	$_fi['params']['f_default'] = htmlspecialchars($_fi['data'][$_fi['tag']]);
 } ?>

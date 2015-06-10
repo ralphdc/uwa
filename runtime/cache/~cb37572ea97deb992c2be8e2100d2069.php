@@ -1,4 +1,4 @@
-<?php /* PFA Template Cache File. Create Time:2015-06-07 00:37:29 */ ?>
+<?php /* PFA Template Cache File. Create Time:2015-06-11 01:07:49 */ ?>
 <!DOCTYPE html> <html> <head> <meta charset="utf-8" /> <title><?php echo($_V['a_title']); ?> - <?php echo($_V['ac_name']); ?> - <?php echo($_SITE['name']); ?></title> <link rel="stylesheet" type="text/css" href="/tpl/rz/home/css/c.css" /> <link rel="stylesheet" type="text/css" href="/tpl/rz/home/js/snsshare/snsshare.css" /> <meta name="keywords" content="<?php echo($_V['a_keywords']); ?>,<?php echo($_V['ac_keywords']); ?>,<?php echo($_SITE['keywords']); ?>" /> <meta name="description" content="<?php echo($_V['a_description']); ?>" /> </head> <body> <div class="header"> <div class="main"> <img class="f_left" src="<?php echo($_SITE['logo']); ?>"
 			alt="<?php echo($_SITE['name']); ?>" /> <div class="f_right help"> <p class="f_gray">全国统一服务热线: 0755-82797719</p> <p class="f_blue">诚信经营 · 细心服务 · 专业产品</p> </div> <div class="clear"></div> </div> </div> <div id="nav_main"> <div class="m w_960"> <dl class="menu w_760 f_l"> <?php
 $_menu_main = M('Menu')->get_menuList('main');

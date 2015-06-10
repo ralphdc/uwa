@@ -324,6 +324,12 @@ return array (
     'ADD_CONTENT' => '添加内容区块',
     'EDIT_CONTENT' => '编辑内容区块',
     'DELETE_CONTENT' => '删除内容区块',
+    'CONTENT_GROUP_TIP' => '编辑内容所在分组',
+    'CONTENT_KEYWORDS_TIP' => '内容显示区的关键词',
+    'CONTENT_DESCRIPTION_TIP' =>'内容显示区对应的描述',
+    'CONTENT_CONTENT_TIP' => '编辑内容区块的具体内容',
+    ' CONTENT_TITLE_TIP'=>'为内容区输入标题',
+    ' CONTENT_DISPLAY_ORDER_TIP'=>'内容区显示顺序',
 /* {uwa_path}/lib/ctrlr/Admin/TagCtrlr.class.php */
   'EDIT_TAG_OPTION' => '编辑 Tag 标签选项',
   'ADD_TAG' => '添加 Tag 标签',

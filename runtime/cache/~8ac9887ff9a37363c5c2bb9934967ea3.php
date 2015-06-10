@@ -1,4 +1,4 @@
-<?php /* PFA Template Cache File. Create Time:2015-06-10 03:08:50 */ ?>
+<?php /* PFA Template Cache File. Create Time:2015-06-11 00:33:22 */ ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -38,18 +38,7 @@
 					<input class="i" type="text" value="<?php echo($_SPI['content_display_order']); ?>" name="content_display_order" maxlength="10" size="4"> <span class="fc_gry"><?php echo(L("CONTENT_DISPLAY_ORDER_TIP")); ?></span>
 				</td>
 			</tr>
-			<tr>
-				<td class="inputTitle"><?php echo(L("TEMPLATE")); ?></td>
-				<td></td>
-			</tr>
-			<tr>
-				<td class="inputArea">
-					<input id="content_tpl" class="required i" type="text" value="<?php echo($_SPI['content_tpl']); ?>" name="content_tpl" maxlength="96" size="30"> <span class="btn_l choose_template" base_dir="home" to_id="content_tpl"><?php echo(L("CHOOSE")); ?></span>
-				</td>
-				<td class="inputTip">
-					<span class="fc_r">*</span> <span class="fc_gry"><?php echo(L("CONTENT_TPL_TIP")); ?></span>
-				</td>
-			</tr>
+			
 			<tr>
 				<td class="inputTitle"><?php echo(L("CONTENT")); ?> <span class="fc_gry"><?php echo(L("CONTENT_CONTENT_TIP")); ?></span></td>
 				<td class=""></td>

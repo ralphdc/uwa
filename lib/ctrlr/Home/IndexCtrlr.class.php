@@ -95,9 +95,11 @@ class IndexCtrlr extends Ctrlr {
 				$url = __APP__ . trim($_oi['html_naming'], '/') . C('HTML.FILE_SUFFIX');
 				redirect($url);
 			}
-
+			$displayContent = 11;
+            $content =M('Content')->get_contentInfo($displayContent);
 			/* task */
 			$this->assign('TASK', 'build_html_index');
+			$this->assign('CONTE', $content['content_content']);
 			$this->display('home/' . $_oi['tpl']);
 		}
 	}

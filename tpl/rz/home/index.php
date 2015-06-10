@@ -16,16 +16,7 @@
 <uwa:ad id="10">
 <div class="center">
 	<div class="main">
-	    <div class="outer">
-        	<div class="title"><h2>热销产品</h2><span>诚信经营 · 细心服务 · 专业产品</span><a href="#">[More]</a></div>
-            <div class="inner">
-             <uwa:ad id="12">
-             <div class="scroll_btn">
-                  <a class="btn" id="backward" href="javascript:void(0)"><i class="icon_left"></i></a>
-                  <a class="btn" id="forward" href="javascript:void(0)"><i class="icon_right"></i></a>
-                </div>
-            </div>
-        </div>
+	    <div>{-:$CONTE-}</div>
         <div class="outer">
         	<div class="title"><h2>热销产品</h2><span>诚信经营 · 细心服务 · 专业产品</span><a href="#">[More]</a></div>
             <div class="inner">
