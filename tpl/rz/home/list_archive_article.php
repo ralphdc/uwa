@@ -3,6 +3,7 @@
 <head>
 <meta charset="utf-8" />
 <title>{-:$_V['ac_name']-} - {-:$_SITE['name']-}</title>
+<link rel="stylesheet" type="text/css" href="{-:*__THEME__-}home/css/rz.css" />
 <link rel="stylesheet" type="text/css" href="{-:*__THEME__-}home/css/c.css" />
 <meta name="keywords" content="{-:$_V['ac_keywords']-},{-:$_SITE['keywords']-}" />
 <meta name="description" content="{-:$_V['ac_description']-}" />
@@ -10,8 +11,53 @@
 
 <body>
 {-include:header-}
-<div class="position m w_960"><span>{-:@POSITION-}</span>{-include:clip/current_position-}</div>
-<div class="h_10 o_h"></div>
+<div class="banner dynamic">
+	<uwa:ad id="17">
+</div>
+
+<div class="center">
+	<div class="main">
+        <div class="crumbs"><a href="#">首页</a> > 最新资讯</div>
+        
+        <div class="list">
+        	<h2>最新资讯</h2>
+            <div class="dynamic_box">
+                <ol>
+                
+                	{-foreach:$_L,$k,$item-}
+        			{-if:$k < 3-}
+        				<li>
+        					<p><a href="{-:$item['a_url']-}"><img class="a" src="{-:$item['a_thumb']-}" /></a></p>
+        					<h3><a href="{-:$item['a_url']-}">{-:$item['a_title']-}</a> </h3>
+        					<p class="a_publish_date ta_r fc_gry fs_12 fw_n">{-:@PUBLISH_DATE-}: {-:$item['a_edit_time']|date~'m-d',@me-}</p>
+        					<p>{-:@CHANNEL-}: <a href="{-:$item['ac_url']-}">{-:$item['ac_name']-}</a>
+        					{-:@VIEW-}: <span class="fc_gry">{-:$item['a_view_count']-}</span>
+        					<p class="a_description fc_gry">{-:$item['a_description']-}</p>
+        				</li>
+        			{-else:-}
+        				<li>
+        					[<a href="{-:$item['ac_url']-}">{-:$item['ac_name']-}</a>] <a class="fc_gry_d" href="{-:$item['a_url']-}">{-:$item['a_title']|AString::utf8_substr~@me,60-}</a>
+        					<span class="fc_gry">{-:$item['a_edit_time']|date~'m-d',@me-}</span>
+        				</li>
+        			{-:/if-}
+        			{-:/foreach-}
+                
+                
+                    <li>
+                    <img src="images/img8.jpg" />
+                    <h3><a href="dynamicinfo.html">标题标题标题标题标题标题标题标题标题标题</a></h3>
+                    <p>文字描述文字描述文字描述文字描述文字描述文字描述文字描述文字描述文字描述文字描述文字描述文字描述文字描述文字描述文字描述文字描述文字描述文字描述文字描述文字描述文字描述文字描述文字描述文字描述文字描述...</p>
+                    <em>[2015-02-02]</em>
+                    <a class="more" href="dynamicinfo.html">更多详情 >></a>
+                    </li>
+                </ol>
+                {-include:clip/paging-}
+            </div>
+        </div>
+        	
+    </div>
+</div>
+
 <div class="m w_960">
 	<div class="w_650 f_l">
 		<div>
