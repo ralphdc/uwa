@@ -79,6 +79,32 @@ INSERT INTO `prefix_admin` (`admin_id`, `a_login_time`, `a_login_ip`, `a_ac_id`,
 (1, {-time-}, '{-ip-}', '_all', 1, 1);
 
 -- --------------------------------------------------------
+--
+-- 表的结构 `prefix_content`
+--
+
+DROP TABLE IF EXISTS `prefix_content`;
+CREATE TABLE IF NOT EXISTS `prefix_content` (
+  `content_id` mediumint(8) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Content ID',
+  `content_title` varchar(255)  NOT NULL DEFAULT '0' COMMENT 'Content Title',
+  `content_group` varchar(255) NOT NULL DEFAULT '0' COMMENT 'content_group',
+  `content_display_order` mediumint(8) NOT NULL DEFAULT 70 COMMENT 'content_display_order',
+  `content_content` text NOT NULL  COMMENT 'content_content',
+  `content_keywords` varchar(255)  COMMENT 'content_keywords',
+  `content_description` varchar(255)  COMMENT 'content_description',
+  PRIMARY KEY (`content_id`),
+  KEY `content_id` (`content_id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COMMENT='Content_Content' AUTO_INCREMENT=2 ;
+
+
+--
+-- 转存表中的数据 `prefix_content`
+--
+
+INSERT INTO `prefix_content` (`content_id`, `content_title`, `content_group`, `content_display_order`, `content_content`, `content_keywords`,`content_description`) VALUES
+(1, '首页内容区域', 'default', 50,'这是首页内容区的内容', '首页关键字','首页内容区描述');
+
+-- --------------------------------------------------------
 
 --
 -- 表的结构 `prefix_admin_log`

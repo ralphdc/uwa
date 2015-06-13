@@ -1,2 +1,0 @@
-<?php /* PFA Template Cache File. Create Time:2015-06-10 02:26:13 */ ?>
-<div class="flash"> <!--flexslider--> <div class="flexslider"> <ul class="slides"> <?php if(isset($_ASI['ad']) and is_array($_ASI['ad'])) : foreach($_ASI['ad'] as $ad) : ?> <li style="background:url(<?php if(!empty($ad['a_file'])) :  ?><?php echo($ad['a_file']); ?><?php else : ?><?php echo(__APP__); ?>u/site/no_thumb.png<?php endif; ?>) 50% 0 no-repeat"></li> <?php endforeach; endif; ?> </ul> </div> <!--end flexslider--> </div>

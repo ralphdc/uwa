@@ -16,13 +16,13 @@ return array (
   array (
     'TYPE' => 'mysql',
     'USER' => 'root',
-    'PWD' => '87113447',
+    'PWD' => '',
     'HOST' => 'localhost',
     'PORT' => '3306',
     'NAME' => 'uwa',
     'PARAMS' => '',
     'CHARSET' => 'UTF8',
-    'PREFIX' => 'uwa2x_',
+    'PREFIX' => 'rz_',
     'SUFFIX' => '',
     'LIKE_FIELDS' => '',
     'DEPLOY_TYPE' => 0,
@@ -49,10 +49,8 @@ return array (
   ),
   'TE' => 
   array (
-   // 'TPL_THEME_DEFAULT' => 'default',
-   // 'TPL_THEME' => 'default',
-      'TPL_THEME_DEFAULT' => 'rz',
-      'TPL_THEME' => 'rz',
+    'TPL_THEME_DEFAULT' => 'rz',
+    'TPL_THEME' => 'rz',
     'TPL_DETECT_USER_AGENT' => false,
     'TPL_USER_AGENT_BRANCH' => 
     array (
@@ -68,7 +66,7 @@ return array (
   array (
     'PREFIX' => 'uwa_',
     'EXPIRE' => 3600,
-    'KEY' => '8gQvnSOF7OOuSiSR',
+    'KEY' => 's5G4IMlauiqKOUx4',
     'CLIENT_CHECK' => true,
   ),
   'SESSION' => 
