@@ -294,6 +294,14 @@ class IndexModl extends Modl {
 						        'm_name' => L('CONTENT'),
 						        'm_alias' => 'content',
 						        'm_url' => 'content/list_content'),
+						    array(
+						        'm_name' => L('PCATEGORY'),
+						        'm_alias' => 'pcategory',
+						        'm_url' => 'pcategory/list_pcategory'),
+						    array(
+						        'm_name' => L('CCATEGORY'),
+						        'm_alias' => 'ccategory',
+						        'm_url' => 'ccategory/list_ccategory'),
 							),
 						),
 					)),

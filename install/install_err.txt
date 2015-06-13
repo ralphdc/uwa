@@ -1,0 +1,12 @@
+//install information
+//----------------------------------------
+//soft: UWA 2.X utf-8 version2.2.4
+//OS: WINNT
+//PHP_VERSION: 5.5.12
+//UPLOAD_MAX_FILESIZE: 64M
+//GD_VERSION: bundled (2.1.0 compatible)
+//DISK_SPACE: 101506M
+//----------------------------------------
+
+INSERT INTO `rz_admin` (`content_id`, `content_title`, `content_group`, `content_display_order`, `content_content`, `content_keywords`,`content_description`) VALUES
+(1, '首页内容区域', 'default', 50,'这是首页内容区的内容', '首页关键字','首页内容区描述');

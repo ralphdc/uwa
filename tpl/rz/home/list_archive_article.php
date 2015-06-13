@@ -27,19 +27,19 @@
                 	{-foreach:$_L,$k,$item-}
         			{-if:$k < 3-}
         				<li>
-        					<p><a href="{-:$item['a_url']-}"><img class="a" src="{-:$item['a_thumb']-}" /></a></p>
-        					<h3><a href="{-:$item['a_url']-}">{-:$item['a_title']-}</a> </h3>
+        					<p><a href="{-:$item['a_url']-}&archive_chennel_id={-:$AC_ID-}"><img class="a" src="{-:$item['a_thumb']-}" /></a></p>
+        					<h3><a href="{-:$item['a_url']-}&archive_chennel_id={-:$AC_ID-}">{-:$item['a_title']-}</a> </h3>
         					<p class="a_publish_date ta_r fc_gry fs_12 fw_n">{-:@PUBLISH_DATE-}: {-:$item['a_edit_time']|date~'m-d',@me-}</p>
-        					<p>{-:@CHANNEL-}: <a href="{-:$item['ac_url']-}">{-:$item['ac_name']-}</a>
+        					<p>{-:@CHANNEL-}: <a href="{-:$item['ac_url']-}&archive_chennel_id={-:$AC_ID-}">{-:$item['ac_name']-}</a>
         					{-:@VIEW-}: <span class="fc_gry">{-:$item['a_view_count']-}</span>
         					<p class="a_description fc_gry">{-:$item['a_description']-}</p>
-        					<a class="more" href="{-:$item['a_url']-}">更多详情 >></a>
+        					<a class="more" href="{-:$item['a_url']-}&archive_chennel_id={-:$AC_ID-}">更多详情 >></a>
         				</li>
         			{-else:-}
         				<li>
-        					[<a href="{-:$item['ac_url']-}">{-:$item['ac_name']-}</a>] <a class="fc_gry_d" href="{-:$item['a_url']-}">{-:$item['a_title']|AString::utf8_substr~@me,60-}</a>
+        					[<a href="{-:$item['ac_url']-}&archive_chennel_id={-:$AC_ID-}">{-:$item['ac_name']-}</a>] <a class="fc_gry_d" href="{-:$item['a_url']-}&archive_chennel_id={-:$AC_ID-}">{-:$item['a_title']|AString::utf8_substr~@me,60-}</a>
         					<span class="fc_gry">{-:$item['a_edit_time']|date~'m-d',@me-}</span>
-        					<a class="more" href="{-:$item['a_url']-}">更多详情 >></a>
+        					<a class="more" href="{-:$item['a_url']-}&archive_chennel_id={-:$AC_ID-}">更多详情 >></a>
         				</li>
         			{-:/if-}
         			{-:/foreach-}

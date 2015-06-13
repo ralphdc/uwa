@@ -106,6 +106,35 @@ INSERT INTO `prefix_content` (`content_id`, `content_title`, `content_group`, `c
 
 -- --------------------------------------------------------
 
+
+-- --------------------------------------------------------
+--
+-- 表的结构 `prefix_pcategory`
+--
+
+DROP TABLE IF EXISTS `prefix_pcategory`;
+CREATE TABLE IF NOT EXISTS `prefix_pcategory` (
+  `pcategory_id` mediumint(8) unsigned NOT NULL AUTO_INCREMENT COMMENT 'pcategory_id',
+  `pcategory_title` varchar(255)  NOT NULL DEFAULT '0' COMMENT 'pcategory_title',
+  `pcategory_group` varchar(255) NOT NULL DEFAULT '0' COMMENT 'pcategory_group',
+  `pcategory_display_order` mediumint(8) NOT NULL DEFAULT 70 COMMENT 'pcategory_display_order',
+  `pcategory_keywords` varchar(255)  COMMENT 'pcategory_keywords',
+  `pcategory_description` varchar(255)  COMMENT 'pcategory_description',
+  `pcategory_edit_time`  datetime NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`pcategory_id`),
+  KEY `pcategory_id` (`pcategory_id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COMMENT='parent_category' AUTO_INCREMENT=2 ;
+
+
+--
+-- 转存表中的数据 `prefix_pcategory`
+--
+
+INSERT INTO `prefix_pcategory` ( `pcategory_title`, `pcategory_group`, `pcategory_display_order`, `pcategory_keywords`, `pcategory_description`) VALUES
+( '白卡', 'default', 50', '一级目录名称','一级目录描述');
+
+-- --------------------------------------------------------
+
 --
 -- 表的结构 `prefix_admin_log`
 --

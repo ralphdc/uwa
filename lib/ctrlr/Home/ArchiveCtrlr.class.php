@@ -114,7 +114,7 @@ class ArchiveCtrlr extends IndexCtrlr {
 			$p = new APage($rowsNum, $_ACI['ac_page_size'], Url::U('archive/show_channel?archive_channel_id=' . $archiveChannelId . '&' . C('VAR.PAGE') . '=_page_' . '&' . http_build_query($_page_ff)));
 			$this->assign('PAGING', $p->get_paging());
 			$limit = $p->get_limit();
-
+            
 			/* archive list */
 			$_AL = M('Archive')->get_archiveList($where, $order, $limit, $_ACI['archive_model_id'], true);
 			$this->assign('_L', $_AL);
@@ -219,7 +219,98 @@ class ArchiveCtrlr extends IndexCtrlr {
 		}
 
 		$this->assign('_V', $_AI);
+        
+		//侧边栏；
+		//==============================================================================================================================================
+		$archiveChannelId = intval(ARequest::get('archive_channel_id'));
+		
+		$_ACI = M('ArchiveChannel')->get_channelInfo($archiveChannelId);
+		if(empty($_ACI)) {
+		   // halt('', true, true);
+		}
+		
+		$where = array();
+			/* get page filter field */
+			$_page_ff = array();
+			foreach($_ACI['am_field'] as $field => $params) {
+				if(1 == $params['f_is_list'] and ('select' == $params['f_type'] or 'radio' == $params['f_type'] or 'checkbox' == $params['f_type'])) {
+					$valueSet = array();
+					$_t = explode(',', $params['f_default']);
+					foreach($_t as $v) {
+						$_t1 = explode('|', $v);
+						$valueSet[$_t1[0]] = $_t1[1];
+					}
 
+					$fieldValue = ARequest::get($field);
+
+					if(!empty($fieldValue) and array_key_exists($fieldValue, $valueSet)) {
+						$where['addon.' . $field] = array('INSET', $fieldValue);
+						$_page_ff[$field] = $fieldValue;
+					}
+				}
+			}
+
+			/* filter field for show */
+			$_FF = array();
+			foreach($_ACI['am_field'] as $field => $params) {
+				if(1 == $params['f_is_list'] and ('select' == $params['f_type'] or 'radio' == $params['f_type'] or 'checkbox' == $params['f_type'])) {
+					$_FF[$field]['name'] = $params['f_item_name'];
+
+					/* get ff params */
+					$_t_page_ff = $_page_ff;
+					unset($_t_page_ff[$field]);
+					$_FF[$field]['params'][] = array(
+						'name' => L('NOT_LIMIT'),
+						'url' => Url::U('archive/show_channel?archive_channel_id=' . $archiveChannelId . '&' . http_build_query($_t_page_ff)),
+						'field' => $field,
+						'value' => '',
+					);
+					$_t = explode(',', $params['f_default']);
+					foreach($_t as $k => $v) {
+						$_t1 = explode('|', $v);
+						$_t_page_ff = $_page_ff;
+						$_t_page_ff[$field] = $_t1[0];
+
+						$_FF[$field]['params'][] = array(
+							'name' => $_t1[1],
+							'url' => Url::U('archive/show_channel?archive_channel_id=' . $archiveChannelId . '&' . http_build_query($_t_page_ff)),
+							'field' => $field,
+							'value' => $_t1[0],
+						);
+					}
+				}
+			}
+			$this->assign('_FF', $_FF);
+
+			$where['__ARCHIVE__.a_status'] = array('EQ', 1);
+
+			$_ACL = M('ArchiveChannel')->get_channelList(0, $archiveChannelId);
+			$act = new ATree($_ACL, array(
+				'archive_channel_id',
+				'ac_parent_id',
+				'ac_sub_channel'), $archiveChannelId);
+			$where['__ARCHIVE__.archive_channel_id'] = array('IN', implode(',', $act->get_leafid($archiveChannelId)));
+
+			$order = '`a_rank` DESC, `a_edit_time` DESC';
+
+			/* get paging */
+			$_GET[C('VAR.PAGE')] = intval(ARequest::get(C('VAR.PAGE'))) ? intval(ARequest::get(C('VAR.PAGE'))) : 1;
+			$rowsNum = M('Archive')->get_archiveCount($where, $_ACI['archive_model_id']);
+			$p = new APage($rowsNum, $_ACI['ac_page_size'], Url::U('archive/show_channel?archive_channel_id=' . $archiveChannelId . '&' . C('VAR.PAGE') . '=_page_' . '&' . http_build_query($_page_ff)));
+			$this->assign('PAGING', $p->get_paging());
+			$limit = $p->get_limit();
+            
+			/* archive list */
+			$_AL = M('Archive')->get_archiveList($where, $order, $limit, $_ACI['archive_model_id'], true);
+			$this->assign('_L', $_AL);
+
+			
+	
+		//==============================================================================================================================================
+		
+		
+		
+		
 		if(!empty($_AI['a_tpl'])) {
 			if('clip' == ARequest::get('type')) {
 				$this->display('home/clip/' . $_AI['a_tpl']);

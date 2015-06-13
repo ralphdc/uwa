@@ -55,6 +55,8 @@ return array (
 /* {uwa_path}/lib/ctrlr/Admin/ArchiveChannelCtrlr.class.php */
   'PREVIEW' => '预览',
   'CONTENT_LIST' => '内容列表',
+    'PCATEGORY_LIST'=>'一级目录列表',
+    'CCATEGORY_LIST'=>'二级目录列表',
   'ADD_CONTENT' => '添加内容',
   'ADD_SUB_CHANNEL' => '添加子频道',
   'ADD_BATCH_OF_SUB_CHANNEL' => '批量添加子频道',
@@ -330,6 +332,16 @@ return array (
     'CONTENT_CONTENT_TIP' => '编辑内容区块的具体内容',
     ' CONTENT_TITLE_TIP'=>'为内容区输入标题',
     ' CONTENT_DISPLAY_ORDER_TIP'=>'内容区显示顺序',
+    /* {uwa_path}/lib/ctrlr/Admin/PcateogryCtrlr.class.php */
+    'ADD_PCATEGORY' => '添加一级目录',
+    'EDIT_PCATEGORY' => '编辑一级目录',
+    'DELETE_PCATEGORY' => '删除一级目录',
+    'PCATEGORY_GROUP_TIP' => '编辑一级目录所在分组',
+    'PCATEGORY_KEYWORDS_TIP' => '一级目录的关键词',
+    'PCATEGORY_DESCRIPTION_TIP' =>'一级目录对应的描述',
+    'PCATEGORY_CONTENT_TIP' => '编辑一级目录的具体内容',
+    'PCATEGORY_TITLE_TIP'=>'为一级目录输入标题',
+    'PCATEGORY_DISPLAY_ORDER_TIP'=>'一级目录显示顺序',
 /* {uwa_path}/lib/ctrlr/Admin/TagCtrlr.class.php */
   'EDIT_TAG_OPTION' => '编辑 Tag 标签选项',
   'ADD_TAG' => '添加 Tag 标签',
@@ -452,6 +464,8 @@ return array (
   'UPLOAD' => '上传',
   'BROWSE_SERVER' => '浏览服务器',
   'CONTENT' => '内容',
+  'PCATEGORY' => '一级分类',
+  'CCATEGORY'=>'二级分类',
   'AD_CONTENT_TIP' => '广告内容,可以作为图片介绍',
   'LINK' => '链接',
   'AD_LINK_TIP' => '广告链接. 如果广告类型为幻灯片, 链接地址不能为默认的 #, 否则可能不显示',
@@ -1575,6 +1589,9 @@ return array (
     /* {uwa_path}/tpl/default/admin/single_page/edit_single_page.php */
     /* {uwa_path}/tpl/default/admin/single_page/list_single_page.php */
    'CONTENT_PAGE_LIST' => '内容区块列表',
+    
+    'PCATEGORY_PAGE_LIST' => '一级目录列表',
+    'CCATEGORY_PAGE_LIST' => '二级目录列表',
 /* {uwa_path}/tpl/default/admin/tag/add_tag.php */
   'T_NAME_TIP' => '标签名称',
   'T_KEYWORDS_TIP' => '标签关键词, 多关键词之间用英文逗号隔开',
