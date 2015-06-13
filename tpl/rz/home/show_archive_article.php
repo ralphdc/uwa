@@ -3,6 +3,7 @@
 <head>
 <meta charset="utf-8" />
 <title>{-:$_V['a_title']-} - {-:$_V['ac_name']-} - {-:$_SITE['name']-}</title>
+<link rel="stylesheet" type="text/css" href="{-:*__THEME__-}home/css/rz.css" />
 <link rel="stylesheet" type="text/css" href="{-:*__THEME__-}home/css/c.css" />
 <link rel="stylesheet" type="text/css" href="{-:*__THEME__-}home/js/snsshare/snsshare.css" />
 <meta name="keywords" content="{-:$_V['a_keywords']-},{-:$_V['ac_keywords']-},{-:$_SITE['keywords']-}" />
@@ -13,6 +14,42 @@
 {-include:header-}
 <div class="position m w_960"><span>{-:@POSITION-}</span>{-include:clip/current_position-}</div>
 <div class="h_10 o_h"></div>
+<div class="center">
+	<div class="main">
+        <div class="crumbs"><a href="#">首页</a> > 最新资讯</div>
+        
+        <div class="list">
+        	<h2>最新资讯</h2>
+            <div class="dynamic_box">
+                <div class="f_left grid2">
+                    <div class="dynamic_nav">
+                        <ul>
+                        	<li><a href="#"><strong>热烈祝贺网站成功升级！</strong>网站更新了更新了更新了更新了更新了更新了更新了更新了...<em>[May 20, 2014 ]</em></li>
+                            <li><a href="#"><strong>热烈祝贺网站成功升级！</strong>网站更新了更新了更新了更新了更新了更新了更新了更新了...<em>[May 20, 2014 ]</em></li>
+                        </ul>
+                        <a href="#">浏览更多动态</a>
+                    </div>
+                </div>
+                <div class="f_right grid8">
+                    <div class="info">
+                        <h1>EPE 珍珠棉凭其超强性能 稳享包装行业专宠</h1>
+                        <img src="images/image6.jpg" />                        
+                        <p>EPE 珍珠棉是一种新型环保的包装材料。它由低密度聚乙烯脂经物理发泡产生无数的独立气泡构成。该产品克服了普通发泡胶易碎、变形、恢复性差的缺点，并具有良好的缓冲防震性能，其产品弹性良好，质地柔软，防潮防水，抗静电，隔音、保温、可塑性能佳、韧性强、可循环再造、环保、抗撞力强，亦具有很好的抗化学性能。是传统包装材料的理想替代品。</p>
+                        <p>当前在珠江三角洲地区，EPE珍珠棉发泡材料生产已较为发达，该材料在各行各业中的使用已较为普遍，我司从事生产珍珠棉行业多年，其一直秉承品质第一、客户第一的经营理念，其产品优越性能也越来越被业内认识和接受，因此EPE珍珠棉的使用将被不断扩大和创新，它正以它独特的优越性能开辟着多功能环保循环再造的全新包装时代!</p>
+                        <p>由于 EPE 珍珠棉环保且可反复回收利用，被业内称为永不衰退的材料。随着产品不断的开发应用， EPE 珍珠棉在包装和填充用料方面得到了越来越广泛的应用。</p>
+                        <p>EPE珍珠棉可应用于电子电器、仪器仪表、电脑、音响、医疗器械、工控机箱、灯饰、工艺品、玻璃、陶瓷、家电、喷涂、家俱、酒类及礼品包装、五金制品、玩具、瓜果、皮鞋的内包装、日用品等多种产品的包装。在加入防静电剂和阻燃剂后，更能彰显其卓越的性能，并且能够根据客户要求将其制成各种型状，使包装更加多样化和美观，这更加显示了EPE珍珠棉的优越性和多样性。</p>
+                        <p>佳昊实业有限公司承诺：带领全体员工贯彻执行本质量手册、实现本公司质量方针和质量目标，确保向顾客提供最佳产品。公司把信誉、产品质量、服务质量、交货及时和顾客满意，放在一切工作的首位，一切工作都是为了满足顾客要求，确保顾客满意而进行，以优质的产品服务满足顾客的合理要求和期望，持续改进，成为顾客忠实的伙伴。</p>
+                        <div class="info_page">
+                        	<a href="#">上一则</a> <a href="#">下一侧</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="clear"></div>
+            </div>
+        </div>
+        	
+    </div>
+</div>
 <div class="m w_960">
 	<div class="w_650 f_l">
 		<div>
