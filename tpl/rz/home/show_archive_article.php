@@ -42,7 +42,7 @@
                         <a href="#">浏览更多动态</a>
                     </div>
                 </div>
-                <div class="f_right grid8">
+                <div class="f_right grid8 product_list">
                     <div class="info">
                         <h1 class="fs_18 fw_b">{-:$_V['a_title']-}</h1>
                         <img src="{-:$_V['a_thumb']-}" />

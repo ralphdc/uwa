@@ -12,38 +12,41 @@
  */
 defined('PFA_PATH') or exit('Access Denied');
 
-class PcategoryCtrlr extends ManageCtrlr {
-	public function list_pcategory() {
+class CcategoryCtrlr extends ManageCtrlr {
+	public function list_ccategory() {
 		/* get paging */
 		$_GET[C('VAR.PAGE')] = ARequest::get(C('VAR.PAGE')) ? ARequest::get(C('VAR.PAGE')) : 1;
-		$rowsNum = M('Pcategory')->count();
-		$p = new APage($rowsNum, 20, Url::U('pcategory/list_pcategory?' . C('VAR.PAGE') . '=_page_'));
+		$rowsNum = M('Ccategory')->count();
+		$p = new APage($rowsNum, 20, Url::U('ccategory/list_ccategory?' . C('VAR.PAGE') . '=_page_'));
 		$this->assign('PAGING', $p->get_paging());
 		$limit = $p->get_limit();
 
-		$_SPL = M('Pcategory')->get_pcategoryPageList('', '`pcategory_display_order` ASC', $limit);
+		$_SPL = M('Ccategory')->get_ccategoryPageList('', '`ccategory_display_order` ASC', $limit);
 		$this->assign('_SPL', $_SPL);
 		$this->display();
 	}
 
-	public function add_pcategory() {
+	public function add_ccategory() {
+	    $pcategory= M('Pcategory')->select();
+	    
+	    $this->assign('ps', $pcategory);
 		$this->display();
 	}
-	public function add_pcategory_do() {
+	public function add_ccategory_do() {
 		if(!check_token()) {
 			$this->error(L('DATA_INVALID'), AServer::get_preUrl());
 		}
 
 		$data = ARequest::get();
-		//$data['pcategory_edit_time'] = time();
+		//$data['ccategory_edit_time'] = time();
 
-		$result = M('Pcategory')->add_pcategory($data);
+		$result = M('Ccategory')->add_ccategory($data);
 		if(!empty($result['error'])) {
-			M('AdminLog')->add_log(ASession::get('m_userid'), L('ADD_PCATEGORY') . ': ' . $result['error'], 0);
-			$this->error($result['error'], Url::U('pcategory/list_pcategory'));
+			M('AdminLog')->add_log(ASession::get('m_userid'), L('ADD_CCATEGORY') . ': ' . $result['error'], 0);
+			$this->error($result['error'], Url::U('ccategory/list_ccategory'));
 		}
 		/* build now */
-		$data['pcategory_id'] = $result['data'];
+		$data['ccategory_id'] = $result['data'];
 		//忽略以下代码；
 		/*
 		if(isset($data['build_now']) and 1 == $data['build_now']) {
@@ -52,32 +55,32 @@ class PcategoryCtrlr extends ManageCtrlr {
 			$this->build_html_do();
 		}
 		*/
-		M('AdminLog')->add_log(ASession::get('m_userid'), L('ADD_PCATEGORY') . ': ID[' . $result['data'] . ']');
-		$this->success(L('ADD_SUCCESS'), Url::U('pcategory/list_pcategory'));
+		M('AdminLog')->add_log(ASession::get('m_userid'), L('ADD_CCATEGORY') . ': ID[' . $result['data'] . ']');
+		$this->success(L('ADD_SUCCESS'), Url::U('ccategory/list_ccategory'));
 	}
 
-	public function edit_pcategory() {
-		$pcategoryId = ARequest::get('pcategory_id');
-		$_SPI = M('Pcategory')->get_pcategoryInfo($pcategoryId);
+	public function edit_ccategory() {
+		$ccategoryId = ARequest::get('ccategory_id');
+		$_SPI = M('Ccategory')->get_ccategoryInfo($ccategoryId);
 		if(empty($_SPI)) {
-			$this->error(L('ITEM_NOT_EXIST'), Url::U('pcategory/list_pcategory'));
+			$this->error(L('ITEM_NOT_EXIST'), Url::U('ccategory/list_ccategory'));
 		}
 		$this->assign('_SPI', $_SPI);
 
 		$this->display();
 	}
-	public function edit_pcategory_do() {
+	public function edit_ccategory_do() {
 		if(!check_token()) {
 			$this->error(L('DATA_INVALID'), AServer::get_preUrl());
 		}
 
 		$data = ARequest::get();
-		//$data['pcategory_edit_time'] = time();
+		//$data['ccategory_edit_time'] = time();
 
-		$result = M('Pcategory')->edit_pcategory($data);
+		$result = M('Ccategory')->edit_ccategory($data);
 		if(!empty($result['error'])) {
-			M('AdminLog')->add_log(ASession::get('m_userid'), L('EDIT_PCATEGORY') . ': ID[' . $data['pcategory_id'] . ']' . $result['error'], 0);
-			$this->error($result['error'], Url::U('pcategory/list_pcategory'));
+			M('AdminLog')->add_log(ASession::get('m_userid'), L('EDIT_CCATEGORY') . ': ID[' . $data['ccategory_id'] . ']' . $result['error'], 0);
+			$this->error($result['error'], Url::U('ccategory/list_ccategory'));
 		}
 		/* build now */
 		/* if(isset($data['build_now']) and 1 == $data['build_now']) {
@@ -86,59 +89,59 @@ class PcategoryCtrlr extends ManageCtrlr {
 			ARequest::set('show_progress', 'no');
 			$this->build_html_do();
 		} */
-		M('AdminLog')->add_log(ASession::get('m_userid'), L('EDIT_PCATEGORY') . ': ID[' . $data['pcategory_id'] . ']');
-		$this->success(L('EDIT_SUCCESS'), Url::U('pcategory/list_pcategory'));
+		M('AdminLog')->add_log(ASession::get('m_userid'), L('EDIT_CCATEGORY') . ': ID[' . $data['ccategory_id'] . ']');
+		$this->success(L('EDIT_SUCCESS'), Url::U('ccategory/list_ccategory'));
 	}
 
 	/* update single page */
-	public function update_pcategory_do() {
+	public function update_ccategory_do() {
 		if(!check_token()) {
 			$this->error(L('DATA_INVALID'), AServer::get_preUrl());
 		}
 
-		$pcategoryId = ARequest::get('pcategory_id');
-		$_L_ID = is_array($pcategoryId) ? implode(', ', $pcategoryId) : $pcategoryId;
+		$ccategoryId = ARequest::get('ccategory_id');
+		$_L_ID = is_array($ccategoryId) ? implode(', ', $ccategoryId) : $ccategoryId;
 
-		if(empty($pcategoryId)) {
-			M('AdminLog')->add_log(ASession::get('m_userid'), L('EDIT_PCATEGORY') . ': ' . L('ITEM_NOT_EXIST'), 0);
-			$this->error(L('ITEM_NOT_EXIST'), Url::U('pcategory/list_pcategory'));
+		if(empty($ccategoryId)) {
+			M('AdminLog')->add_log(ASession::get('m_userid'), L('EDIT_CCATEGORY') . ': ' . L('ITEM_NOT_EXIST'), 0);
+			$this->error(L('ITEM_NOT_EXIST'), Url::U('ccategory/list_ccategory'));
 		}
 
-		$spDisplayOrder = ARequest::get('pcategory_display_order');
+		$spDisplayOrder = ARequest::get('ccategory_display_order');
 		$data = array();
-		foreach($pcategoryId as $k => $id) {
-			$data['pcategory_id'] = $id;
-			$data['pcategory_display_order'] = $spDisplayOrder[$k];
-			$result = M('Pcategory')->edit_pcategory($data);
+		foreach($ccategoryId as $k => $id) {
+			$data['ccategory_id'] = $id;
+			$data['ccategory_display_order'] = $spDisplayOrder[$k];
+			$result = M('Ccategory')->edit_ccategory($data);
 			if(!empty($result['error'])) {
-				M('AdminLog')->add_log(ASession::get('m_userid'), L('EDIT_PCATEGORY') . ': ID[' . $id . ']' . $result['error'], 0);
-				$this->error($result['error'], Url::U('pcategory/list_pcategory'));
+				M('AdminLog')->add_log(ASession::get('m_userid'), L('EDIT_CCATEGORY') . ': ID[' . $id . ']' . $result['error'], 0);
+				$this->error($result['error'], Url::U('ccategory/list_ccategory'));
 			}
 		}
 
-		M('AdminLog')->add_log(ASession::get('m_userid'), L('EDIT_PCATEGORY') . ': ID[' . $_L_ID . ']');
-		$this->success(L('EDIT_SUCCESS'), Url::U('pcategory/list_pcategory'));
+		M('AdminLog')->add_log(ASession::get('m_userid'), L('EDIT_CCATEGORY') . ': ID[' . $_L_ID . ']');
+		$this->success(L('EDIT_SUCCESS'), Url::U('ccategory/list_ccategory'));
 	}
 
-	public function delete_pcategory_do() {
+	public function delete_ccategory_do() {
 		if(!check_token()) {
 			$this->error(L('DATA_INVALID'), AServer::get_preUrl());
 		}
 
-		$pcategoryId = ARequest::get('pcategory_id');
-		$pcategoryId = is_array($pcategoryId) ? $pcategoryId : explode(',', $pcategoryId);
-		$_L_ID = implode(', ', $pcategoryId);
+		$ccategoryId = ARequest::get('ccategory_id');
+		$ccategoryId = is_array($ccategoryId) ? $ccategoryId : explode(',', $ccategoryId);
+		$_L_ID = implode(', ', $ccategoryId);
 
-		foreach($pcategoryId as $pcategoryId) {
-			$result = M('Pcategory')->delete_pcategory($pcategoryId);
+		foreach($ccategoryId as $ccategoryId) {
+			$result = M('Ccategory')->delete_ccategory($ccategoryId);
 			if(!empty($result['error'])) {
-				M('AdminLog')->add_log(ASession::get('m_userid'), L('PCATEGORY') . ': ID[' . $pcategoryId . ']' . $result['error'], 0);
-				$this->error($result['error'], Url::U('pcategory/list_pcategory'));
+				M('AdminLog')->add_log(ASession::get('m_userid'), L('CCATEGORY') . ': ID[' . $ccategoryId . ']' . $result['error'], 0);
+				$this->error($result['error'], Url::U('ccategory/list_ccategory'));
 			}
 		}
 
-		M('AdminLog')->add_log(ASession::get('m_userid'), L('DELETE_PCATEGORY') . ': ID[' . $_L_ID . ']');
-		$this->success(L('DELETE_SUCCESS'), Url::U('pcategory/list_pcategory'));
+		M('AdminLog')->add_log(ASession::get('m_userid'), L('DELETE_CCATEGORY') . ': ID[' . $_L_ID . ']');
+		$this->success(L('DELETE_SUCCESS'), Url::U('ccategory/list_ccategory'));
 	}
 
 	public function build_url_do() {

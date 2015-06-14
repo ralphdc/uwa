@@ -302,6 +302,10 @@ class IndexModl extends Modl {
 						        'm_name' => L('CCATEGORY'),
 						        'm_alias' => 'ccategory',
 						        'm_url' => 'ccategory/list_ccategory'),
+						    array(
+						        'm_name' => L('PRODUCT'),
+						        'm_alias' => 'product',
+						        'm_url' => 'product/list_product'),
 							),
 						),
 					)),

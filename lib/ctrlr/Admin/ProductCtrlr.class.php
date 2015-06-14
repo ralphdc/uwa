@@ -12,70 +12,75 @@
  */
 defined('PFA_PATH') or exit('Access Denied');
 
-class CcategoryCtrlr extends ManageCtrlr {
-	public function list_content() {
+class ProductCtrlr extends ManageCtrlr {
+	public function list_product() {
 		/* get paging */
 		$_GET[C('VAR.PAGE')] = ARequest::get(C('VAR.PAGE')) ? ARequest::get(C('VAR.PAGE')) : 1;
-		$rowsNum = M('Content')->count();
-		$p = new APage($rowsNum, 20, Url::U('content/list_content?' . C('VAR.PAGE') . '=_page_'));
+		$rowsNum = M('Product')->count();
+		$p = new APage($rowsNum, 20, Url::U('product/list_product?' . C('VAR.PAGE') . '=_page_'));
 		$this->assign('PAGING', $p->get_paging());
 		$limit = $p->get_limit();
 
-		$_SPL = M('Content')->get_contentPageList('', '`content_display_order` ASC', $limit);
+		$_SPL = M('Product')->get_productPageList('', '`product_display_order` ASC', $limit);
 		$this->assign('_SPL', $_SPL);
-        
 		$this->display();
 	}
 
-	public function add_content() {
+	public function add_product() {
+	    $pcategory= M('Pcategory')->select();
+	    
+	    $this->assign('ps', $pcategory);
 		$this->display();
 	}
-	public function add_content_do() {
+	public function add_product_do() {
 		if(!check_token()) {
 			$this->error(L('DATA_INVALID'), AServer::get_preUrl());
 		}
 
 		$data = ARequest::get();
-		$data['content_edit_time'] = time();
+		//$data['product_edit_time'] = time();
 
-		$result = M('Content')->add_content($data);
+		$result = M('Product')->add_product($data);
 		if(!empty($result['error'])) {
-			M('AdminLog')->add_log(ASession::get('m_userid'), L('ADD_SINGLE_PAGE') . ': ' . $result['error'], 0);
-			$this->error($result['error'], Url::U('content/list_content'));
+			M('AdminLog')->add_log(ASession::get('m_userid'), L('ADD_PRODUCT') . ': ' . $result['error'], 0);
+			$this->error($result['error'], Url::U('product/list_product'));
 		}
 		/* build now */
-		$data['content_id'] = $result['data'];
+		$data['product_id'] = $result['data'];
+		//忽略以下代码；
+		/*
 		if(isset($data['build_now']) and 1 == $data['build_now']) {
 			M('SinglePage')->build_url($data['single_page_id']);
 			ARequest::set('single_page_id', $data['single_page_id']);
 			$this->build_html_do();
 		}
-		M('AdminLog')->add_log(ASession::get('m_userid'), L('ADD_CONTENT') . ': ID[' . $result['data'] . ']');
-		$this->success(L('ADD_SUCCESS'), Url::U('content/list_content'));
+		*/
+		M('AdminLog')->add_log(ASession::get('m_userid'), L('ADD_PRODUCT') . ': ID[' . $result['data'] . ']');
+		$this->success(L('ADD_SUCCESS'), Url::U('product/list_product'));
 	}
 
-	public function edit_content() {
-		$contentId = ARequest::get('content_id');
-		$_SPI = M('Content')->get_contentInfo($contentId);
+	public function edit_product() {
+		$productId = ARequest::get('product_id');
+		$_SPI = M('Product')->get_productInfo($productId);
 		if(empty($_SPI)) {
-			$this->error(L('ITEM_NOT_EXIST'), Url::U('content/list_content'));
+			$this->error(L('ITEM_NOT_EXIST'), Url::U('product/list_product'));
 		}
 		$this->assign('_SPI', $_SPI);
 
 		$this->display();
 	}
-	public function edit_content_do() {
+	public function edit_product_do() {
 		if(!check_token()) {
 			$this->error(L('DATA_INVALID'), AServer::get_preUrl());
 		}
 
 		$data = ARequest::get();
-		$data['content_edit_time'] = time();
+		//$data['product_edit_time'] = time();
 
-		$result = M('Content')->edit_content($data);
+		$result = M('Product')->edit_product($data);
 		if(!empty($result['error'])) {
-			M('AdminLog')->add_log(ASession::get('m_userid'), L('EDIT_CONTENT') . ': ID[' . $data['content_id'] . ']' . $result['error'], 0);
-			$this->error($result['error'], Url::U('content/list_content'));
+			M('AdminLog')->add_log(ASession::get('m_userid'), L('EDIT_PRODUCT') . ': ID[' . $data['product_id'] . ']' . $result['error'], 0);
+			$this->error($result['error'], Url::U('product/list_product'));
 		}
 		/* build now */
 		/* if(isset($data['build_now']) and 1 == $data['build_now']) {
@@ -84,61 +89,77 @@ class CcategoryCtrlr extends ManageCtrlr {
 			ARequest::set('show_progress', 'no');
 			$this->build_html_do();
 		} */
-		M('AdminLog')->add_log(ASession::get('m_userid'), L('EDIT_CONTENT') . ': ID[' . $data['content_id'] . ']');
-		$this->success(L('EDIT_SUCCESS'), Url::U('content/list_content'));
+		M('AdminLog')->add_log(ASession::get('m_userid'), L('EDIT_PRODUCT') . ': ID[' . $data['product_id'] . ']');
+		$this->success(L('EDIT_SUCCESS'), Url::U('product/list_product'));
 	}
 
 	/* update single page */
-	public function update_content_do() {
+	public function update_product_do() {
 		if(!check_token()) {
 			$this->error(L('DATA_INVALID'), AServer::get_preUrl());
 		}
 
-		$singlePageId = ARequest::get('content_id');
-		$_L_ID = is_array($singlePageId) ? implode(', ', $singlePageId) : $singlePageId;
+		$productId = ARequest::get('product_id');
+		$_L_ID = is_array($productId) ? implode(', ', $productId) : $productId;
 
-		if(empty($singlePageId)) {
-			M('AdminLog')->add_log(ASession::get('m_userid'), L('EDIT_CONTENT') . ': ' . L('ITEM_NOT_EXIST'), 0);
-			$this->error(L('ITEM_NOT_EXIST'), Url::U('content/list_content'));
+		if(empty($productId)) {
+			M('AdminLog')->add_log(ASession::get('m_userid'), L('EDIT_PRODUCT') . ': ' . L('ITEM_NOT_EXIST'), 0);
+			$this->error(L('ITEM_NOT_EXIST'), Url::U('product/list_product'));
 		}
 
-		$spDisplayOrder = ARequest::get('content_display_order');
+		$spDisplayOrder = ARequest::get('product_display_order');
 		$data = array();
-		foreach($singlePageId as $k => $id) {
-			$data['content_id'] = $id;
-			$data['content_display_order'] = $spDisplayOrder[$k];
-			$result = M('Content')->edit_content($data);
+		foreach($productId as $k => $id) {
+			$data['product_id'] = $id;
+			$data['product_display_order'] = $spDisplayOrder[$k];
+			$result = M('Product')->edit_product($data);
 			if(!empty($result['error'])) {
-				M('AdminLog')->add_log(ASession::get('m_userid'), L('EDIT_CONTENT') . ': ID[' . $id . ']' . $result['error'], 0);
-				$this->error($result['error'], Url::U('content/list_content'));
+				M('AdminLog')->add_log(ASession::get('m_userid'), L('EDIT_PRODUCT') . ': ID[' . $id . ']' . $result['error'], 0);
+				$this->error($result['error'], Url::U('product/list_product'));
 			}
 		}
 
-		M('AdminLog')->add_log(ASession::get('m_userid'), L('EDIT_CONTENT') . ': ID[' . $_L_ID . ']');
-		$this->success(L('EDIT_SUCCESS'), Url::U('content/list_content'));
+		M('AdminLog')->add_log(ASession::get('m_userid'), L('EDIT_PRODUCT') . ': ID[' . $_L_ID . ']');
+		$this->success(L('EDIT_SUCCESS'), Url::U('product/list_product'));
 	}
 
-	public function delete_content_do() {
+	public function delete_product_do() {
 		if(!check_token()) {
 			$this->error(L('DATA_INVALID'), AServer::get_preUrl());
 		}
 
-		$contentId = ARequest::get('content_id');
-		$contentId = is_array($contentId) ? $contentId : explode(',', $contentId);
-		$_L_ID = implode(', ', $contentId);
+		$productId = ARequest::get('product_id');
+		$productId = is_array($productId) ? $productId : explode(',', $productId);
+		$_L_ID = implode(', ', $productId);
 
-		foreach($contentId as $contentId) {
-			$result = M('Content')->delete_content($contentId);
+		foreach($productId as $productId) {
+			$result = M('Product')->delete_product($productId);
 			if(!empty($result['error'])) {
-				M('AdminLog')->add_log(ASession::get('m_userid'), L('CONTENT') . ': ID[' . $contentId . ']' . $result['error'], 0);
-				$this->error($result['error'], Url::U('content/list_content'));
+				M('AdminLog')->add_log(ASession::get('m_userid'), L('PRODUCT') . ': ID[' . $productId . ']' . $result['error'], 0);
+				$this->error($result['error'], Url::U('product/list_product'));
 			}
 		}
 
-		M('AdminLog')->add_log(ASession::get('m_userid'), L('DELETE_CONTENT') . ': ID[' . $_L_ID . ']');
-		$this->success(L('DELETE_SUCCESS'), Url::U('content/list_content'));
+		M('AdminLog')->add_log(ASession::get('m_userid'), L('DELETE_PRODUCT') . ': ID[' . $_L_ID . ']');
+		$this->success(L('DELETE_SUCCESS'), Url::U('product/list_product'));
 	}
-
+    
+	public function checkcategory(){
+	    $pid =  ARequest::get('pid');
+	    if(empty($pid)){
+	        echo  json_encode(array('result'=>1,'message'=>'传入参数错误！'));
+	        exit;
+	    }
+	    
+	    $child = M('Ccategory')->where(array('ccategory_parent'=>$pid))->select();
+	    if($child){
+	        echo  json_encode(array('result'=>0,'message'=>$child));
+	        exit;
+	    }else{
+	         echo  json_encode(array('result'=>1,'message'=>'未找到结果'));
+	         exit;
+	    }
+	}
 	public function build_url_do() {
 		if(!check_token()) {
 			$this->error(L('DATA_INVALID'), AServer::get_preUrl());

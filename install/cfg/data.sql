@@ -146,6 +146,7 @@ DROP TABLE IF EXISTS `prefix_ccategory`;
 CREATE TABLE IF NOT EXISTS `prefix_ccategory` (
   `ccategory_id` mediumint(8) unsigned NOT NULL AUTO_INCREMENT COMMENT 'ccategory_id',
   `ccategory_title` varchar(255)  NOT NULL DEFAULT '0' COMMENT 'ccategory_title',
+  `ccategory_parent` int(8)  NOT NULL DEFAULT 1 COMMENT 'ccategory_parent',
   `ccategory_group` varchar(255) NOT NULL DEFAULT '0' COMMENT 'ccategory_group',
   `ccategory_display_order` mediumint(8) NOT NULL DEFAULT 70 COMMENT 'ccategory_display_order',
   `ccategory_keywords` varchar(255)  COMMENT 'ccategory_keywords',
@@ -160,8 +161,38 @@ CREATE TABLE IF NOT EXISTS `prefix_ccategory` (
 -- 转存表中的数据 `prefix_ccategory`
 --
 
-INSERT INTO `prefix_ccategory` ( `ccategory_title`, `ccategory_group`, `ccategory_display_order`, `ccategory_keywords`, `ccategory_description`) VALUES
-( '二级产品目录测试', 'default', 50', '二级目录名称','二级目录描述');
+INSERT INTO `prefix_ccategory` ( `ccategory_title`,`ccategory_parent`, `ccategory_group`, `ccategory_display_order`, `ccategory_keywords`, `ccategory_description`) VALUES
+( '二级产品目录测试',1, 'default', 50', '二级目录名称','二级目录描述');
+
+
+-- --------------------------------------------------------
+
+
+-- --------------------------------------------------------
+--
+-- 表的结构 `prefix_product`
+--
+
+DROP TABLE IF EXISTS `prefix_product`;
+CREATE TABLE IF NOT EXISTS `prefix_product` (
+  `product_id` mediumint(8) unsigned NOT NULL AUTO_INCREMENT COMMENT 'product_id',
+  `product_parent` int(8)  NOT NULL DEFAULT 1 COMMENT 'product_parent',
+  `product_child` int(8)  NOT NULL DEFAULT 1 COMMENT 'product_child',
+  `product_content` text NOT NULL  COMMENT 'product_content',
+  `product_title` varchar(255) NOT NULL DEFAULT 'rzpackage' COMMENT 'product_title',
+  `product_img` varchar(255)  COMMENT 'product_img',
+  `product_keywords` varchar(255)  COMMENT 'product_keywords',
+  `product_description`  varchar(255)  COMMENT 'product_description',
+   `product_display_order`  int(8)  COMMENT 'product_display_order',
+  `product_create_time`  timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`product_id`),
+  KEY `product_id` (`product_id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COMMENT='product' AUTO_INCREMENT=2 ;
+
+
+--
+-- 转存表中的数据 `prefix_product`
+--
 
 
 -- --------------------------------------------------------

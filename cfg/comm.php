@@ -1,6 +1,6 @@
 <?php
 return array (
-  'LANG' => 
+  'LANG' => '',
   array (
     'DETECT' => false,
     'NAME' => 'zh-cn',
