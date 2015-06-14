@@ -120,7 +120,7 @@ CREATE TABLE IF NOT EXISTS `prefix_pcategory` (
   `pcategory_display_order` mediumint(8) NOT NULL DEFAULT 70 COMMENT 'pcategory_display_order',
   `pcategory_keywords` varchar(255)  COMMENT 'pcategory_keywords',
   `pcategory_description` varchar(255)  COMMENT 'pcategory_description',
-  `pcategory_edit_time`  datetime NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `pcategory_edit_time`  timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`pcategory_id`),
   KEY `pcategory_id` (`pcategory_id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COMMENT='parent_category' AUTO_INCREMENT=2 ;
@@ -132,6 +132,37 @@ CREATE TABLE IF NOT EXISTS `prefix_pcategory` (
 
 INSERT INTO `prefix_pcategory` ( `pcategory_title`, `pcategory_group`, `pcategory_display_order`, `pcategory_keywords`, `pcategory_description`) VALUES
 ( '白卡', 'default', 50', '一级目录名称','一级目录描述');
+
+
+-- --------------------------------------------------------
+
+
+-- --------------------------------------------------------
+--
+-- 表的结构 `prefix_ccategory`
+--
+
+DROP TABLE IF EXISTS `prefix_ccategory`;
+CREATE TABLE IF NOT EXISTS `prefix_ccategory` (
+  `ccategory_id` mediumint(8) unsigned NOT NULL AUTO_INCREMENT COMMENT 'ccategory_id',
+  `ccategory_title` varchar(255)  NOT NULL DEFAULT '0' COMMENT 'ccategory_title',
+  `ccategory_group` varchar(255) NOT NULL DEFAULT '0' COMMENT 'ccategory_group',
+  `ccategory_display_order` mediumint(8) NOT NULL DEFAULT 70 COMMENT 'ccategory_display_order',
+  `ccategory_keywords` varchar(255)  COMMENT 'ccategory_keywords',
+  `ccategory_description` varchar(255)  COMMENT 'ccategory_description',
+  `ccategory_edit_time`  timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`ccategory_id`),
+  KEY `ccategory_id` (`ccategory_id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COMMENT='ccategorys' AUTO_INCREMENT=2 ;
+
+
+--
+-- 转存表中的数据 `prefix_ccategory`
+--
+
+INSERT INTO `prefix_ccategory` ( `ccategory_title`, `ccategory_group`, `ccategory_display_order`, `ccategory_keywords`, `ccategory_description`) VALUES
+( '二级产品目录测试', 'default', 50', '二级目录名称','二级目录描述');
+
 
 -- --------------------------------------------------------
 

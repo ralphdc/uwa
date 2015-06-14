@@ -70,7 +70,7 @@ class PcategoryCtrlr extends ManageCtrlr {
 		}
 
 		$data = ARequest::get();
-		$data['pcategory_edit_time'] = time();
+		//$data['pcategory_edit_time'] = time();
 
 		$result = M('Pcategory')->edit_pcategory($data);
 		if(!empty($result['error'])) {
@@ -128,7 +128,7 @@ class PcategoryCtrlr extends ManageCtrlr {
 		$_L_ID = implode(', ', $pcategoryId);
 
 		foreach($pcategoryId as $pcategoryId) {
-			$result = M('Pcategory')->delete_category($pcategoryId);
+			$result = M('Pcategory')->delete_pcategory($pcategoryId);
 			if(!empty($result['error'])) {
 				M('AdminLog')->add_log(ASession::get('m_userid'), L('PCATEGORY') . ': ID[' . $pcategoryId . ']' . $result['error'], 0);
 				$this->error($result['error'], Url::U('pcategory/list_pcategory'));

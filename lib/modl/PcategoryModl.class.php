@@ -43,7 +43,7 @@ class PcategoryModl extends Modl {
 		return $result;
 	}
 
-	public function edit_category($data) {
+	public function edit_pcategory($data) {
 		$result = array('data' => '', 'error' => '');
 
 		if(false === $this->update($data)) {

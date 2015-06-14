@@ -29,9 +29,9 @@
 				<td>{-:$sp['pcategory_group']-}</td>
 				<td>{-:$sp['pcategory_title']-}</td>
 				<td>
-					{-:$sp['pcategory_edit_time']|date~'Y-m-d',@me-}
+					{-:$sp['pcategory_edit_time']-}
 				</td>
-				<td><a href="{-url:pcategory/edit_pcategory?category_id={$sp['pcategory_id']}-}">{-:@EDIT-}</a> | <a href="{-url:pcategory/delete_pcategory_do?pcategory_id={$sp['pcategory_id']}&timeKey={$_TK['timeKey']}&token={$_TK['token']}-}" onclick="javascript:return delete_confirm();">{-:@DELETE-}</a>
+				<td><a href="{-url:pcategory/edit_pcategory?pcategory_id={$sp['pcategory_id']}-}">{-:@EDIT-}</a> | <a href="{-url:pcategory/delete_pcategory_do?pcategory_id={$sp['pcategory_id']}&timeKey={$_TK['timeKey']}&token={$_TK['token']}-}" onclick="javascript:return delete_confirm();">{-:@DELETE-}</a>
 					</td>
 			</tr>
 			{-:/foreach-}
@@ -43,11 +43,11 @@
 	<input name="timeKey" type="hidden" value="{-:$_TK['timeKey']-}">
 	<input name="token" type="hidden" value="{-:$_TK['token']-}">
 	<a class="btn_l" href="{-url:pcategory/add_pcategory-}">{-:@ADD_PCATEGORY-}</a>
-	<span class="btn_l submit" action="{-url:pcateogry/update_pcategory_do-}" to="#formList">{-:@UPDATE_SELECTED-}</span>
+	<!--  <span class="btn_l submit" action="{-url:pcateogry/update_pcategory_do-}" to="#formList">{-:@UPDATE_SELECTED-}</span>  -->
 	<span class="btn_l submit" action="{-url:pcategory/delete_pcategory_do-}" to="#formList">{-:@DELETE_SELECTED-}</span>
 	<input class="btn_l" type="reset" value="{-:@RESET-}" />
-	<span class="btn_l submit" action="{-url:pcategory/build_url_do-}" to="#formList">{-:@BUILD_URL-}</span>
-	<span class="btn_l submit" action="{-url:pcategory/build_html_do-}" to="#formList">{-:@BUILD_HTML-}</span>
+	<!-- <span class="btn_l submit" action="{-url:pcategory/build_url_do-}" to="#formList">{-:@BUILD_URL-}</span>
+	<span class="btn_l submit" action="{-url:pcategory/build_html_do-}" to="#formList">{-:@BUILD_HTML-}</span> -->
 </div><!--/#operation-->
 </form>
 <script src="{-:*__PUBLIC__-}js/jquery.js"></script>
