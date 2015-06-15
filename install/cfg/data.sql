@@ -181,6 +181,7 @@ CREATE TABLE IF NOT EXISTS `prefix_product` (
   `product_content` text NOT NULL  COMMENT 'product_content',
   `product_title` varchar(255) NOT NULL DEFAULT 'rzpackage' COMMENT 'product_title',
   `product_img` varchar(255)  COMMENT 'product_img',
+  `product_group` varchar(255)  COMMENT 'product_group',
   `product_keywords` varchar(255)  COMMENT 'product_keywords',
   `product_description`  varchar(255)  COMMENT 'product_description',
    `product_display_order`  int(8)  COMMENT 'product_display_order',

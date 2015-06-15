@@ -6,6 +6,9 @@
 <link rel="stylesheet" type="text/css" href="{-:*__THEME__-}admin/css/c.css" />
 <link rel="stylesheet" type="text/css" href="{-:*__THEME__-}admin/css/mf.css" />
 <link rel="stylesheet" type="text/css" href="{-:*__PUBLIC__-}js/dialog/artdialog.css" />
+<link rel="stylesheet" type="text/css" href="{-:*__PUBLIC__-}js/calendar/calendar.css" />
+<script src="{-:*__PUBLIC__-}js/calendar/calendar.js"></script>
+<script src="{-:*__PUBLIC__-}js/calendar/lang/zh-cn.js"></script>
 <script src="{-:*__PUBLIC__-}js/jquery.js"></script>
 </head>
 <body>
@@ -57,11 +60,29 @@
 			</tr>
 			<script type="text/javascript">
 					$("#product_parent").change(function(){
+						$("#category-notice").html('');
 						var pid = $(this).val();
 						$.post("{-url:product/checkcategory-}",{'pid':pid},function(data){
 							var res = eval("("+data+")");
 							if(res.result){
 								alert(res.message)
+							}else{
+								var result = res.message;
+								html = '';
+								for(var r in result){
+									html += "<option value='"+result[r].ccategory_id+"'>"+result[r].ccategory_title+"</opiton>";
+								}
+								$('#product_child').html(html);
+							}
+						})
+					})
+					
+					$(document).ready(function(){
+						var pid = $("#product_parent").val();
+						$.post("{-url:product/checkcategory-}",{'pid':pid},function(data){
+							var res = eval("("+data+")");
+							if(res.result){
+								$("#category-notice").html(res.message);
 							}else{
 								var result = res.message;
 								html = '';
@@ -81,7 +102,7 @@
 				<td class="inputArea">
 				    <select name="product_child" id="product_child">
 				   
-				    </select>
+				    </select><span id="category-notice"></span>
 				</td>
 				
 				<td class="inputTip">
@@ -89,6 +110,19 @@
 					
 				</td>
 			</tr>
+			<tr>
+					<td class="inputTitle">{-:@THUMB-}</td>
+					<td class="inputArea" rowspan="2">
+						<img id="product_img_preview" src="{-:*__APP__-}u/site/no_thumb.png" width="160" /></td>
+				</tr>
+				<tr>
+					<td class="inputArea">
+						<input id="product_img" class="i" type="text" value="" name="product_img" maxlength="255" size="70">
+						<input id="product_img_uploader" to="#product_img" preview="#product_img_preview" btntext="{-:@UPLOAD-}" typeset='image' thumb='yes' class="uploader" type="file" />
+						<span id="product_img_finder" to="#product_img" preview="#product_img_preview" typeset='image' class="btn_l finder">{-:@BROWSE_SERVER-}</span>
+					</td>
+				</tr>
+			<tr>
 				<td colspan="2" class="inputArea">
 					<textarea class="editor" name="product_content" style="width:95%;height:240px;"></textarea>
 				</td>
@@ -128,7 +162,7 @@
 	<a class="btn_l" href="{-url:product/list_product-}">{-:@BACK-}</a>
 </div>
 </form>
-
+<script src="{-:*__PUBLIC__-}js/uploadify/uploadify.js"></script>
 <script src="{-:*__PUBLIC__-}js/editor/ckeditor.js"></script>
 <script src="{-:*__PUBLIC__-}js/dialog/artdialog.js"></script>
 <script>
@@ -142,11 +176,59 @@ $(document).ready(function() {
 	$('.editor').each(function(){
 		CKEDITOR.replace(this, editor_option);
 	});
+
+	var editor_option_paging = {
+			filebrowserBrowseUrl : '{-url:finder/browse?typeset=all&type={$_AI['am_alias']}-}',
+			filebrowserImageBrowseUrl : '{-url:finder/browse?typeset=image&type={$_AI['am_alias']}-}',
+			filebrowserUploadUrl : '{-url:upload/upload_file?typeset=all&upload_type={$_AI['am_alias']}&watermark=yes&return_type=editor&timeKey={$_TK["timeKey"]}&token={$_TK["token"]}-}',
+			filebrowserImageUploadUrl : '{-url:upload/upload_file?typeset=image&upload_type={$_AI['am_alias']}&watermark=yes&return_type=editor&timeKey={$_TK["timeKey"]}&token={$_TK["token"]}-}',
+			extraPlugins : 'uwapaging'
+		};
+		$('.editor_paging').each(function(){
+			CKEDITOR.replace(this, editor_option_paging);
+		});
+
+		
 });
 var url_choose_template_file = '{-url:template/choose_template_file-}',
 	l_choose_template = '{-:@CHOOSE_TEMPLATE-}';
+var type_desc_all = '{-:@FILE-}', file_type_exts_all = '{-:$_OU['all']-}',
+type_desc_image = '{-:@IMAGE-}', file_type_exts_image = '{-:$_OU['img']-}',
+form_data = {'{-php:echo session_name();-}' : '{-php:echo session_id();-}', 'timeKey' : '{-:$_TK["timeKey"]-}', 'token' : '{-:$_TK["token"]-}'},
+uploadify_swf = '{-:*__PUBLIC__-}js/uploadify/uploadify.swf',
+uploader_all = '{-url:upload/upload_file?typeset=all&upload_type={$_AI['am_alias']}-}',
+uploader_image = '{-url:upload/upload_file?typeset=image&upload_type={$_AI['am_alias']}&watermark=yes-}',
+uploader_image_thumb = '{-url:upload/upload_file?typeset=image&upload_type={$_AI['am_alias']}&watermark=yes&thumb=yes-}',
+uploader_image_thumb_both = '{-url:upload/upload_file?typeset=image&upload_type={$_AI['am_alias']}&watermark=yes&thumb=both-}';
+
+var finder_browse_url_all = '{-url:finder/browse?typeset=all&type={$_AI['am_alias']}-}',
+finder_browse_url_image = '{-url:finder/browse?typeset=image&type={$_AI['am_alias']}-}',
+finder_browse_url_file = '{-url:finder/browse?typeset=file&type={$_AI['am_alias']}-}';
+
+var url_get_linkage_select = '{-url:ajax/get_linkage_select-}';
+
+var url_choose_template_file = '{-url:template/choose_template_file-}',
+l_choose_template = '{-:@CHOOSE_TEMPLATE-}';
+
+var url_choose_archive = '{-url:archive/choose_archive-}',
+l_choose_archive = '{-:@CHOOSE_ARCHIVE-}';
+
+var url_check_duplicate_archive = '{-url:ajax/check_duplicate_archive-}',
+url_show_archive = '{-url:home@archive/show_archive-}',
+l_archive_duplicate_tip = '{-:@ARCHIVE_DUPLICATE_TIP-}';
+
+var url_get_channel_select = '{-url:ajax/get_channel_select-}';
 </script>
+
 <script src="{-:*__THEME__-}admin/js/c.js"></script>
+<script src="{-:*__THEME__-}admin/js/cal.js"></script>
+<script src="{-:*__THEME__-}admin/js/u.js"></script>
+<script src="{-:*__THEME__-}admin/js/f.js"></script>
+<script src="{-:*__THEME__-}admin/js/l.js"></script>
+<script src="{-:*__THEME__-}admin/js/c_t.js"></script>
+<script src="{-:*__THEME__-}admin/js/c_a.js"></script>
+<script src="{-:*__THEME__-}admin/js/a.js"></script>
+<script src="{-:*__THEME__-}admin/js/g_ac.js"></script>
 <script src="{-:*__THEME__-}admin/js/c_t.js"></script>
 </body>
 </html>

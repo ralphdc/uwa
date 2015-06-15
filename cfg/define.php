@@ -9,5 +9,5 @@ define('SOFT_OFFICIAL_FORUM_URL', '');
 define('SOFT_ONLINE_MANUAL_URL', '');
 define('SOFT_UPGRADE_URL', '');
 define('SOFT_AUTHORIZATION_URL', '');
-define('SOFT_SEED', 'ppDnNDykacuersUu');
+define('SOFT_SEED', 'MkMTfIfnNdbhgjGV');
 ?>

@@ -58,6 +58,7 @@ return array (
     'PCATEGORY_LIST'=>'一级目录列表',
     'CCATEGORY_LIST'=>'二级目录列表',
     'PRODUCT_LIST'=>'产品展示列表',
+    'PRODUCT_PRODUCT_TIP'=>'产品具体信息',
   'ADD_CONTENT' => '添加内容',
   'ADD_SUB_CHANNEL' => '添加子频道',
   'ADD_BATCH_OF_SUB_CHANNEL' => '批量添加子频道',

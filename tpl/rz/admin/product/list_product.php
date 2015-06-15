@@ -29,7 +29,7 @@
 				<td>{-:$sp['product_group']-}</td>
 				<td>{-:$sp['product_title']-}</td>
 				<td>
-					{-:$sp['product_edit_time']-}
+					{-:$sp['product_create_time']-}
 				</td>
 				<td><a href="{-url:product/edit_product?product_id={$sp['product_id']}-}">{-:@EDIT-}</a> | <a href="{-url:product/delete_product_do?product_id={$sp['product_id']}&timeKey={$_TK['timeKey']}&token={$_TK['token']}-}" onclick="javascript:return delete_confirm();">{-:@DELETE-}</a>
 					</td>

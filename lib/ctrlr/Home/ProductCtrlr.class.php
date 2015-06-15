@@ -27,9 +27,17 @@ class ProductCtrlr extends IndexCtrlr {
 	    }
 	    $this->assign('categorys', $pcategorys);
 	    
+	    $_GET[C('VAR.PAGE')] = ARequest::get(C('VAR.PAGE')) ? ARequest::get(C('VAR.PAGE')) : 1;
+	    $rowsNum = M('Product')->count();
+	    $p = new APage($rowsNum, 20, Url::U('product/show_channel?' . C('VAR.PAGE') . '=_page_'));
+	    $this->assign('PAGING', $p->get_paging());
+	    $limit = $p->get_limit();
+	    
+	    $_SPL = M('Product')->get_productPageList('', '`product_display_order` ASC', $limit);
+	    $this->assign('SPL', $_SPL);
+	    
 	    
 	    //查找产品；
-	    $products = M('product')->select();
 	    $this->display('home/list_product');
 	}
 

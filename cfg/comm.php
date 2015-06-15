@@ -1,6 +1,7 @@
 <?php
 return array (
   'LANG' => '',
+  0 => 
   array (
     'DETECT' => false,
     'NAME' => 'zh-cn',
@@ -16,10 +17,10 @@ return array (
   array (
     'TYPE' => 'mysql',
     'USER' => 'root',
-    'PWD' => '',
+    'PWD' => '87113447',
     'HOST' => 'localhost',
     'PORT' => '3306',
-    'NAME' => 'uwa',
+    'NAME' => 'rzpackage',
     'PARAMS' => '',
     'CHARSET' => 'UTF8',
     'PREFIX' => 'rz_',
@@ -66,7 +67,7 @@ return array (
   array (
     'PREFIX' => 'uwa_',
     'EXPIRE' => 3600,
-    'KEY' => 's5G4IMlauiqKOUx4',
+    'KEY' => 'bjjRCtMvOaDEIdC0',
     'CLIENT_CHECK' => true,
   ),
   'SESSION' => 

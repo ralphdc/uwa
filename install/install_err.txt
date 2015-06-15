@@ -2,11 +2,13 @@
 //----------------------------------------
 //soft: UWA 2.X utf-8 version2.2.4
 //OS: WINNT
-//PHP_VERSION: 5.5.12
-//UPLOAD_MAX_FILESIZE: 64M
+//PHP_VERSION: 5.5.23
+//UPLOAD_MAX_FILESIZE: 2M
 //GD_VERSION: bundled (2.1.0 compatible)
-//DISK_SPACE: 101506M
+//DISK_SPACE: 79111M
 //----------------------------------------
 
-INSERT INTO `rz_admin` (`content_id`, `content_title`, `content_group`, `content_display_order`, `content_content`, `content_keywords`,`content_description`) VALUES
-(1, '首页内容区域', 'default', 50,'这是首页内容区的内容', '首页关键字','首页内容区描述');
+INSERT INTO `rz_pcategory` ( `pcategory_title`, `pcategory_group`, `pcategory_display_order`, `pcategory_keywords`, `pcategory_description`) VALUES
+( '白卡', 'default', 50', '一级目录名称','一级目录描述');
+INSERT INTO `rz_ccategory` ( `ccategory_title`,`ccategory_parent`, `ccategory_group`, `ccategory_display_order`, `ccategory_keywords`, `ccategory_description`) VALUES
+( '二级产品目录测试',1, 'default', 50', '二级目录名称','二级目录描述');
