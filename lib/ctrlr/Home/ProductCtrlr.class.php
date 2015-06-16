@@ -20,22 +20,40 @@ class ProductCtrlr extends IndexCtrlr {
 	    
 	    $pcategorys = M('Pcategory')->select();
 	    //查找一级分类下面的二级分类；
-	    foreach ($pcategorys as &$p){
-	        $pid = $p['pcategory_id'];
-	        $p['ccategory'] =  M('ccategory')->where(array('ccategory_parent'=>$pid))->select();
+	    foreach ($pcategorys as &$pcategory){
+	        $pcategoryid = $pcategory['pcategory_id'];
+	        $pcategory['ccategory'] =  M('Ccategory')->where(array('ccategory_parent'=>$pcategoryid))->select();
 	       
 	    }
-	    $this->assign('categorys', $pcategorys);
+	    
+	    
 	    
 	    $_GET[C('VAR.PAGE')] = ARequest::get(C('VAR.PAGE')) ? ARequest::get(C('VAR.PAGE')) : 1;
-	    $rowsNum = M('Product')->count();
-	    $p = new APage($rowsNum, 20, Url::U('product/show_channel?' . C('VAR.PAGE') . '=_page_'));
+	    
+	    $child_category = ARequest::get(C('ccategory'));
+	    
+	    
+	    if($child_category){
+	        $rowsNum= M('Product')->where(array('product_child'=>$child_category))->count();
+	    }else{
+	        $rowsNum = M('Product')->count();
+	    }
+	    
+	  
+	    
+	    $p = new APage($rowsNum, 12, Url::U('product/show_channel?' . C('VAR.PAGE') . '=_page_'));
 	    $this->assign('PAGING', $p->get_paging());
 	    $limit = $p->get_limit();
 	    
-	    $_SPL = M('Product')->get_productPageList('', '`product_display_order` ASC', $limit);
-	    $this->assign('SPL', $_SPL);
 	    
+	    if($child_category){
+	        $_SPL = M('Product')->where(array('product_child'=>$child_category))->get_productPageList('', '`product_display_order` ASC', $limit);
+	    }else{
+	        $_SPL = M('Product')->get_productPageList('', '`product_display_order` ASC', $limit);
+	    }
+	    $this->assign('_SPL', $_SPL);
+	    
+	    $this->assign('categorys', $pcategorys);
 	    
 	    //查找产品；
 	    $this->display('home/list_product');

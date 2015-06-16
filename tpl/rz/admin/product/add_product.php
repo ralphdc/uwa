@@ -68,11 +68,12 @@
 								alert(res.message)
 							}else{
 								var result = res.message;
-								html = '';
-								for(var r in result){
-									html += "<option value='"+result[r].ccategory_id+"'>"+result[r].ccategory_title+"</opiton>";
+								doms = '';
+								for(i=0; i<result.length; i++){
+									doms += "<option value='"+result[i].ccategory_id+"'>"+result[i].ccategory_title+"</opiton>";
 								}
-								$('#product_child').html(html);
+								$('#product_child').html(doms);
+								
 							}
 						})
 					})
@@ -85,11 +86,11 @@
 								$("#category-notice").html(res.message);
 							}else{
 								var result = res.message;
-								html = '';
-								for(var r in result){
-									html += "<option value='"+result[r].ccategory_id+"'>"+result[r].ccategory_title+"</opiton>";
+								doms = '';
+								for(i=0; i<result.length; i++){
+									doms += "<option value='"+result[i].ccategory_id+"'>"+result[i].ccategory_title+"</opiton>";
 								}
-								$('#product_child').html(html);
+								$('#product_child').html(doms);
 							}
 						})
 					})

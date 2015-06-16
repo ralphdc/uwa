@@ -27,7 +27,7 @@
                      {-if:count($c['ccategory'])>0-}
                         <ul>
                          {-foreach:$c['ccategory'],$kc,$child-}
-                            <li><a>=>{-:$child['ccategory_title']-}</a></li>
+                            <li><a href="/?c=product&a=show_channel&ccategory={-:$child['ccategory_id']-}">=>{-:$child['ccategory_title']-}</a></li>
                          {-:/foreach-}
                         </ul>
                      {-:/if-}
@@ -38,26 +38,11 @@
                 
                 <div class="f_right grid8 product_list">
                 <ul>
-                    <li><img src="images/iamge1.jpg" /><a href="productinfo.html">产品名字“测试数据仅供参考”</a></li>
-                    <li><img src="images/iamge2.jpg" /><a href="productinfo.html">产品名字“测试数据仅供参考”</a></li>
-                    <li><img src="images/iamge3.jpg" /><a href="productinfo.html">产品名字“测试数据仅供参考”</a></li>
-                    <li><img src="images/iamge4.jpg" /><a href="productinfo.html">产品名字“测试数据仅供参考”</a></li>
-                    <li><img src="images/iamge1.jpg" /><a href="productinfo.html">产品名字“测试数据仅供参考”</a></li>
-                    <li><img src="images/iamge2.jpg" /><a href="productinfo.html">产品名字“测试数据仅供参考”</a></li>
-                    <li><img src="images/iamge3.jpg" /><a href="productinfo.html">产品名字“测试数据仅供参考”</a></li>
-                    <li><img src="images/iamge4.jpg" /><a href="productinfo.html">产品名字“测试数据仅供参考”</a></li>
-                    <li><img src="images/iamge1.jpg" /><a href="productinfo.html">产品名字“测试数据仅供参考”</a></li>
-                    <li><img src="images/iamge2.jpg" /><a href="productinfo.html">产品名字“测试数据仅供参考”</a></li>
-                    <li><img src="images/iamge3.jpg" /><a href="productinfo.html">产品名字“测试数据仅供参考”</a></li>
-                    <li><img src="images/iamge4.jpg" /><a href="productinfo.html">产品名字“测试数据仅供参考”</a></li>
+                {-foreach:$_SPL,$sp-}
+                    <li><img src="{-:$sp['product_img']-}" width="214" height="214" /><a href="/?c=product&a=show_channel&ccategory={-:$sp['ccategory']-}">{-:$sp['product_title']-}</a></li>
+                {-:/foreach-}
                 </ul>
-                <div class="page">
-                    <a href="#"><</a>
-                    <a href="#">1</a>
-                    <a href="#">2</a>...</a>
-                    <a href="#">6</a>
-                    <a href="#">></a>
-                </div>
+                {-include:clip/paging-}
                 </div>
                 <div class="clear"></div>
             </div>

@@ -17,6 +17,8 @@
 				<th scope="col" width="70">{-:@DISPLAY_ORDER-}</th>
 				<th scope="col">{-:@ID-}</th>
 				<th scope="col">{-:@GROUP-}</th>
+				<th scope="col">一级分类</th>
+				<th scope="col">二级分类</th>
 				<th scope="col">{-:@TITLE-}</th>
 				<th scope="col">{-:@EDIT_TIME-}</th>
 				<th scope="col">{-:@MANAGE-}</th>
@@ -26,6 +28,9 @@
 				<td><input name="product_id[{-:$sp['product_id']-}]" type="checkbox" value="{-:$sp['product_id']-}"></td>
 				<td><input type="text" class="i required" size="6" maxlength="10" name="sp_display_order[{-:$sp['product_id']-}]" value="{-:$sp['product_id']-}"></td>
 				<td>{-:$sp['product_id']-}</td>
+				<td>{-:$sp['product_group']-}</td>
+				<td>{-:$parent_category[$sp['product_parent']]-}</td>
+				<td>{-:$child_category[$sp['product_child']]-}</td>
 				<td>{-:$sp['product_group']-}</td>
 				<td>{-:$sp['product_title']-}</td>
 				<td>

@@ -23,6 +23,13 @@ class CcategoryCtrlr extends ManageCtrlr {
 
 		$_SPL = M('Ccategory')->get_ccategoryPageList('', '`ccategory_display_order` ASC', $limit);
 		$this->assign('_SPL', $_SPL);
+		
+		$parent_category = M('Pcategory')->field(array('pcategory_id','pcategory_title'))->select();
+		$parent_info = array();
+		foreach($parent_category as $parent){
+		    $parent_info[$parent['pcategory_id']]=$parent['pcategory_title'];
+		}
+		$this->assign('parent_info',$parent_info);
 		$this->display();
 	}
 

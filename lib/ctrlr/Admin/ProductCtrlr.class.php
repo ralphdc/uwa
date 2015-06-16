@@ -23,6 +23,20 @@ class ProductCtrlr extends ManageCtrlr {
 
 		$_SPL = M('Product')->get_productPageList('', '`product_display_order` ASC', $limit);
 		$this->assign('_SPL', $_SPL);
+		
+		$parent_category = M('Pcategory')->field(array('pcategory_id','pcategory_title'))->select();
+		$child_category = M('Ccategory')->field(array('ccategory_id','ccategory_title'))->select();
+		
+		$ps=array();
+		$cs=array();
+		foreach($parent_category as $parent){
+		    $ps[$parent['pcategory_id']] = $parent['pcategory_title'];
+		}
+		foreach($child_category as $child){
+		    $cs[$child['ccategory_id']] = $child['ccategory_title'];
+		}
+		$this->assign('parent_category',$ps);
+		$this->assign('child_category', $cs);
 		$this->display();
 	}
 

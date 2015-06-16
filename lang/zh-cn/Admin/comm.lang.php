@@ -565,6 +565,9 @@ return array (
   'TIME' => '时间',
   'IP' => 'IP地址',
   'SUCCESS' => '成功',
+    /* {uwa_path}/tpl/rz/admin/product/list_product.php */
+    
+    'PPARENT'=>'父目录',
 /* {uwa_path}/tpl/default/admin/admin_log/list_log.php */
   'DESC' => '逆序',
   'ASC' => '正序',

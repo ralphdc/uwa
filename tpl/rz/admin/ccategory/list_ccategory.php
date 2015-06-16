@@ -17,6 +17,7 @@
 				<th scope="col" width="70">{-:@DISPLAY_ORDER-}</th>
 				<th scope="col">{-:@ID-}</th>
 				<th scope="col">{-:@GROUP-}</th>
+				<th scope="col">{-:@PPARENT-}</th>
 				<th scope="col">{-:@TITLE-}</th>
 				<th scope="col">{-:@EDIT_TIME-}</th>
 				<th scope="col">{-:@MANAGE-}</th>
@@ -27,6 +28,7 @@
 				<td><input type="text" class="i required" size="6" maxlength="10" name="sp_display_order[{-:$sp['ccategory_id']-}]" value="{-:$sp['ccategory_id']-}"></td>
 				<td>{-:$sp['ccategory_id']-}</td>
 				<td>{-:$sp['ccategory_group']-}</td>
+				<td>{-:$parent_info[$sp['ccategory_parent']]-}</td>
 				<td>{-:$sp['ccategory_title']-}</td>
 				<td>
 					{-:$sp['ccategory_edit_time']-}
