@@ -39,7 +39,7 @@
                 <div class="f_right grid8 product_list">
                 <ul>
                 {-foreach:$_SPL,$sp-}
-                    <li><img src="{-:$sp['product_img']-}" width="214" height="214" /><a href="/?c=product&a=show_channel&ccategory={-:$sp['ccategory']-}">{-:$sp['product_title']-}</a></li>
+                    <li><a href="/?c=product&a=show_product&pcategory={-:$sp['product_parent']-}&ccategory={-:$sp['product_child']-}&product_id={-:$sp['product_id']-}"><img src="{-:$sp['product_img']-}" width="214" height="214" /></a><a href="/?c=product&a=show_product&pcategory={-:$sp['product_parent']-}&ccategory={-:$sp['product_child']-}&product_id={-:$sp['product_id']-}">{-:$sp['product_title']-}</a></li>
                 {-:/foreach-}
                 </ul>
                 {-include:clip/paging-}

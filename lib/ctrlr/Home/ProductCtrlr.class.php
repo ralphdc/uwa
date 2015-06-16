@@ -60,7 +60,32 @@ class ProductCtrlr extends IndexCtrlr {
 	    //查找产品；
 	    $this->display('home/list_product');
 	}
-
+    
+	public function show_product(){
+	    $product_id = intval(ARequest::get('product_id'));
+	    empty($product_id) && die('参数传入错误！');
+	    
+	    $this->assign('parent_category_value', ARequest::get(C('pcategory')));
+	    $this->assign('child_category_value', ARequest::get(C('ccategory')));
+	    
+	    
+	    $pcategorys = M('Pcategory')->select();
+	    //查找一级分类下面的二级分类；
+	    foreach ($pcategorys as &$pcategory){
+	        $pcategoryid = $pcategory['pcategory_id'];
+	        $pcategory['ccategory'] =  M('Ccategory')->where(array('ccategory_parent'=>$pcategoryid))->select();
+	    
+	    }
+	    $this->assign('categorys', $pcategorys);
+	    
+	    
+	    $product_info = M('Product')->where(array('product_id'=>$product_id))->find();
+	    
+	    $this->assign('product_info', $product_info);
+	    $this->display('home/show_product');
+	    
+	    
+	}
 	public function show_archive() {
 		$archiveId = intval(ARequest::get('archive_id'));
 		$_AI = M('Archive')->get_archiveInfo($archiveId, true);
