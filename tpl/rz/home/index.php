@@ -13,14 +13,14 @@
 {-include:header-}
 
 
-<uwa:ad id="10">
+<uwa:ad id="6">
 <div class="center">
 	<div class="main">
 	    <div>{-:$CONTE-}</div>
         <div class="outer">
         	<div class="title"><h2>热销产品</h2><span>诚信经营 · 细心服务 · 专业产品</span><a href="#">[More]</a></div>
             <div class="inner">
-               <uwa:ad id="12">
+               <uwa:ad id="7">
             </div>
         </div>
 	</div>

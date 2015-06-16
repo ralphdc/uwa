@@ -74,7 +74,11 @@ class IndexCtrlr extends Ctrlr {
 
 			/* task */
 			$this->assign('TASK', 'build_html_index&' . C('VAR.PAGE') . '=' . ARequest::get(C('VAR.PAGE')));
-
+            
+			$contents = M('Content')->where(array('content_id'=>1))->select();
+			print_r($contents);
+			$this->assign('CONTE', $contents['content_content']);
+			
 			if('clip' == ARequest::get('type')) {
 				$this->display('home/clip/' . $_oi['tpl_paging']);
 			}
