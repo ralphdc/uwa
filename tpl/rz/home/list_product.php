@@ -23,11 +23,11 @@
            	<div class="f_left grid2">
                 <div class="product_nav">
                 {-foreach:$categorys,$k,$c-}
-                    <a {-if:$k==0-} class="active pk" {-else:-} class="pk" {-:/if-} href="javascript:void(0)">{-:$c['pcategory_title']-}</a>
+                    <a {-if:$k==0-} class="active pk" {-else:-} class="pk" {-:/if-} href="javascript:void(0)"  data-number="parent{-:$c['pcategory_id']-}">{-:$c['pcategory_title']-}</a>
                      {-if:count($c['ccategory'])>0-}
                         <ul>
                          {-foreach:$c['ccategory'],$kc,$child-}
-                            <li><a href="/?c=product&a=show_channel&ccategory={-:$child['ccategory_id']-}">=>{-:$child['ccategory_title']-}</a></li>
+                            <li><a href="/?c=product&a=show_channel&pcategory={-:$c['pcategory_id']-}&ccategory={-:$child['ccategory_id']-}" data-number="child{-:$child['ccategory_id']-}">=>{-:$child['ccategory_title']-}</a></li>
                          {-:/foreach-}
                         </ul>
                      {-:/if-}
@@ -84,6 +84,28 @@ $(document).ready(function(){
 		$(this).addClass("active");
 		$(this).next().slideDown();
     })
+
+    var parent = '{-:$parent_category_value-}';
+	   var current = '{-:$child_category_value-}';
+		$('.product_nav a').each(function(){
+			if($(this).attr('data-number') == 'parent'+parent){
+				$(this).addClass('active');
+				$(this).next('ul').slideDown();
+			}
+
+			
+
+			
+			$(this).next('ul').find('a').each(function(){
+				if($(this).attr('data-number') == 'child'+current){
+					$(this).css({'color':'#FF0000'});
+				}
+
+				
+				
+			})
+		})
+				
 	
 });
 </script>

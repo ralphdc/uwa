@@ -39,7 +39,6 @@ class ProductCtrlr extends IndexCtrlr {
 	        $rowsNum = M('Product')->count();
 	    }
 	    
-	  
 	    
 	    $p = new APage($rowsNum, 12, Url::U('product/show_channel?' . C('VAR.PAGE') . '=_page_'));
 	    $this->assign('PAGING', $p->get_paging());
@@ -47,13 +46,16 @@ class ProductCtrlr extends IndexCtrlr {
 	    
 	    
 	    if($child_category){
-	        $_SPL = M('Product')->where(array('product_child'=>$child_category))->get_productPageList('', '`product_display_order` ASC', $limit);
+	        $_SPL = M('Product')->get_productPageList(array('product_child'=>$child_category), '`product_display_order` ASC', $limit);
 	    }else{
 	        $_SPL = M('Product')->get_productPageList('', '`product_display_order` ASC', $limit);
 	    }
+	    
 	    $this->assign('_SPL', $_SPL);
 	    
 	    $this->assign('categorys', $pcategorys);
+	    $this->assign('parent_category_value', ARequest::get(C('pcategory')));
+	    $this->assign('child_category_value', ARequest::get(C('ccategory')));
 	    
 	    //查找产品；
 	    $this->display('home/list_product');
