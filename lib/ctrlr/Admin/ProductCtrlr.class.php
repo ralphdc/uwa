@@ -90,7 +90,6 @@ class ProductCtrlr extends ManageCtrlr {
 
 		$data = ARequest::get();
 		//$data['product_edit_time'] = time();
-
 		$result = M('Product')->edit_product($data);
 		if(!empty($result['error'])) {
 			M('AdminLog')->add_log(ASession::get('m_userid'), L('EDIT_PRODUCT') . ': ID[' . $data['product_id'] . ']' . $result['error'], 0);

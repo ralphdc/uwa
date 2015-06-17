@@ -17,6 +17,7 @@
 				<th scope="col" width="70">{-:@DISPLAY_ORDER-}</th>
 				<th scope="col">{-:@ID-}</th>
 				<th scope="col">{-:@GROUP-}</th>
+				<th scope="col">是否热销</th>
 				<th scope="col">一级分类</th>
 				<th scope="col">二级分类</th>
 				<th scope="col">{-:@TITLE-}</th>
@@ -29,13 +30,15 @@
 				<td><input type="text" class="i required" size="6" maxlength="10" name="sp_display_order[{-:$sp['product_id']-}]" value="{-:$sp['product_id']-}"></td>
 				<td>{-:$sp['product_id']-}</td>
 				<td>{-:$sp['product_group']-}</td>
+				<td>{-if:$sp['product_focus']=='on'-}是{-else:-}否{-:/if-}</td>
 				<td>{-:$parent_category[$sp['product_parent']]-}</td>
 				<td>{-:$child_category[$sp['product_child']]-}</td>
-				<td>{-:$sp['product_group']-}</td>
 				<td>{-:$sp['product_title']-}</td>
 				<td>
 					{-:$sp['product_create_time']-}
 				</td>
+				
+				
 				<td><a href="{-url:product/edit_product?product_id={$sp['product_id']}-}">{-:@EDIT-}</a> | <a href="{-url:product/delete_product_do?product_id={$sp['product_id']}&timeKey={$_TK['timeKey']}&token={$_TK['token']}-}" onclick="javascript:return delete_confirm();">{-:@DELETE-}</a>
 					</td>
 			</tr>

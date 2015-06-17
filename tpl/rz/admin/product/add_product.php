@@ -129,6 +129,13 @@
 				</td>
 			</tr>
 			<tr>
+				<td colspan="2" class="inputArea">
+					是否设置为热销产品： 
+					<span><label for="product_yes">是</label><input id="product_yes" type="radio" name="product_focus" vaule="1" /></span>
+					&nbsp;&nbsp;&nbsp;&nbsp;<span><label for="product_no">否</label><input id="product_no" type="radio" name="product_focus" vaule="0" /></span>
+				</td>
+			</tr>
+			<tr>
 				<td class="inputTitle">{-:@KEYWORDS-}</td>
 				<td class=""></td>
 			</tr>
