@@ -71,7 +71,8 @@ class EmailModl extends Modl {
 	public function send_email($toAddress, $title, $content, $attachment = array()) {
 		$result = array('data' => '', 'error' => '');
 
-		$_O = get_extensionOption('email');
+		//$_O = get_extensionOption('email');
+		$_O = '';
 		vendor('PHPMailer.phpmailer#class');
 		$mailer = new PHPMailer();
 		if('smtp' == $_O['mailer']) {
@@ -83,7 +84,7 @@ class EmailModl extends Modl {
 			$mailer->Username = $_O['smtp']['username'];
 			$mailer->Password = $_O['smtp']['password'];
 		}
-		$mailer->XMailer = 'UWA Emailer (http://asthis.net)';
+		//$mailer->XMailer = 'UWA Emailer (http://rzpackage.com)';
 		$mailer->CharSet = 'utf-8';
 		$mailer->IsHTML(true);
 		$mailer->From = $_O['sender'];

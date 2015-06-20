@@ -67,6 +67,8 @@ class ManageCtrlr extends Ctrlr {
 		/* upload option */
 		$_OU = M('Upload')->get_uploadOption();
 		$this->assign('_OU', $_OU);
+		
+		$this->assign('langs','zh-cn');
 	}
 }
 

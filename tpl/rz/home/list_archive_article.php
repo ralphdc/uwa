@@ -4,7 +4,6 @@
 <meta charset="utf-8" />
 <title>{-:$_V['ac_name']-} - {-:$_SITE['name']-}</title>
 <link rel="stylesheet" type="text/css" href="{-:*__THEME__-}home/css/rz.css" />
-<link rel="stylesheet" type="text/css" href="{-:*__THEME__-}home/css/c.css" />
 <meta name="keywords" content="{-:$_V['ac_keywords']-},{-:$_SITE['keywords']-}" />
 <meta name="description" content="{-:$_V['ac_description']-}" />
 </head>
@@ -12,13 +11,12 @@
 <body>
 {-include:header-}
 <div class="banner dynamic">
-	<uwa:ad id="17">
+	<uwa:ad id="10">
 </div>
 
 <div class="center">
 	<div class="main">
-        <div class="crumbs"><a href="#">首页</a> > 最新资讯</div>
-        
+          <div class="crumbs"><a href="#">{-:@POSITION-}</a> > {-include:clip/current_position-}</div>
         <div class="list">
         	<h2>最新资讯</h2>
             <div class="dynamic_box">

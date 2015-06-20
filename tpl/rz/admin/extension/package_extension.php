@@ -46,7 +46,7 @@
 						<input class="i" type="text" value="" name="e_author_email" maxlength="255" size="30"> <span class="fc_r">*</span>
 					</td>
 					<td class="inputArea">
-						<input class="i" type="text" value="http://" name="e_author_site" maxlength="255" size="40" placeholder="http://">
+						<input class="i" type="text" value="" name="e_author_site" maxlength="255" size="40" placeholder="http://">
 					</td>
 				</tr>
 				<tr>

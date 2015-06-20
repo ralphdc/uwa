@@ -53,7 +53,6 @@
 			<span class="a" id="operationMapSwitch"><img class="mi mi_16" src="{-:*__THEME__-}admin/img/mi_16/operation_map.png" /> {-:@OPERATION_MAP-}</span>
 		</div>
 		<div id="position"></div><!--/#position-->
-		<div id="official_link"><a href="{-:*SOFT_OFFICIAL_FORUM_URL-}" target="_blank"><img class="mi mi_16" src="{-:*__THEME__-}admin/img/mi_16/balloon.png" /> {-:@OFFICIAL_FORUM-}</a> <a href="{-:*SOFT_ONLINE_MANUAL_URL-}" target="_blank"><img class="mi mi_16" src="{-:*__THEME__-}admin/img/mi_16/lifebuoy.png" /> {-:@HELP_MANUAL-}</a></div>
 	</div><!--/#positionBar-->
 </div><!--/#header-->
 <div id="sidebar">
@@ -76,7 +75,7 @@
 </div><!--/#main-->
 <div id="footer">
 	<div id="iframeTabs"><ul></ul></div>
-	<div id="copyright">&copy;{-php:echo date('Y');-} <a href="{-:*SOFT_AUTHOR_URL-}" class="fw_b" target="_blank">{-:*SOFT_AUTHOR-}</a>, Powered by <span class="fc_b fw_b">{-:*SOFT_NAME-}{-:*SOFT_CODENAME-}({-:*SOFT_VERSION-}) {-:*SOFT_CHARSET-}</span>{-if:!is_null($LICENCE)-} <span class="fc_g fw_b">{-:@AUTHORIZED-}</span>{-else:-} <span class="fc_gry fw_n">{-:@UNAUTHORIZED-}</span>{-:/if-}</div>
+	<div id="copyright">&copy;{-php:echo date('Y');-} <a href="javascript:void(0)" class="fw_b" target="_blank">锐志包装</a>, Powered by <span class="fc_b fw_b">锐志包装公司</span></div>
 </div><!--/#footer-->
 <div id="operationMap" style="display:none">
 {-foreach:$_M,$m-}

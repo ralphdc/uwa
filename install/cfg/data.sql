@@ -130,8 +130,6 @@ CREATE TABLE IF NOT EXISTS `prefix_pcategory` (
 -- 转存表中的数据 `prefix_pcategory`
 --
 
-INSERT INTO `prefix_pcategory` ( `pcategory_title`, `pcategory_group`, `pcategory_display_order`, `pcategory_keywords`, `pcategory_description`) VALUES
-( '白卡', 'default', 50', '一级目录名称','一级目录描述');
 
 
 -- --------------------------------------------------------
@@ -161,8 +159,7 @@ CREATE TABLE IF NOT EXISTS `prefix_ccategory` (
 -- 转存表中的数据 `prefix_ccategory`
 --
 
-INSERT INTO `prefix_ccategory` ( `ccategory_title`,`ccategory_parent`, `ccategory_group`, `ccategory_display_order`, `ccategory_keywords`, `ccategory_description`) VALUES
-( '二级产品目录测试',1, 'default', 50', '二级目录名称','二级目录描述');
+--
 
 
 -- --------------------------------------------------------
@@ -181,7 +178,7 @@ CREATE TABLE IF NOT EXISTS `prefix_product` (
   `product_content` text NOT NULL  COMMENT 'product_content',
   `product_title` varchar(255) NOT NULL DEFAULT 'rzpackage' COMMENT 'product_title',
   `product_img` varchar(255)  COMMENT 'product_img',
-  `product_focus` char(1) default '0'  COMMENT 'product_focus',
+  `product_focus` char(10) default 'off'  COMMENT 'product_focus',
   `product_group` varchar(255)  COMMENT 'product_group',
   `product_keywords` varchar(255)  COMMENT 'product_keywords',
   `product_description`  varchar(255)  COMMENT 'product_description',

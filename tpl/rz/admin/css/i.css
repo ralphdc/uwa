@@ -1,7 +1,7 @@
 /* index */
 #header{position:absolute;top:0;left:0;z-index:2;width:100%;height:90px}
 #header #mainNav{position:relative;min-width:800px;height:59px;border-bottom:1px solid #3d5c99;_overflow:hidden;background:url(../img/repeat_x_bg.gif) 0 0 repeat-x;color:#fff}
-#header #mainNav #logo{float:left;width:200px;height:59px;background:url(../img/admin_logo.png) 0 0  no-repeat}
+#header #mainNav #logo{float:left;width:200px;height:59px;background:url(../img/rz_logo.png) 0 0  no-repeat}
 #header #mainNav #logo h1{text-indent:-9999px;line-height:59px;font-size:24px;font-weight:bold}
 #header #mainNav #mainMenu{float:left;position:relative;height:59px;text-shadow:1px 1px 1px rgba(255, 255, 255, 0.2)}
 #header #mainNav #mainMenu li{float:left;margin:30px 4px 0 0;padding:0 10px;height:29px;border:1px solid #528fcc;border-bottom:none;color:#def;font-weight:bold;font-size:14px;background:url(../img/repeat_x_bg.gif) 0 0 repeat-x;cursor:pointer;border-radius:4px 4px 0 0}

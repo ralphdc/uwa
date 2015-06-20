@@ -1,9 +1,0 @@
-/*s: custom model */
-ul.aul_custom_model{}
-ul.aul_custom_model li{padding:10px;border-bottom:1px dashed #ccc}
-
-.adl_custom_model{padding: 0 0 10px}
-	.adl_custom_model dt{padding: 0 2px;border-bottom:1px solid #3d6dcc;height: 27px;line-height: 27px}
-		.adl_custom_model dt strong{margin: 4px 0 0;padding: 0 10px;display:inline-block;height: 23px;line-height: 23px;background:#3d6dcc;color: #e6eaf2}
-	.adl_custom_model dd{padding: 10px 0}
-/*s: custom model */

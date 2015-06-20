@@ -23,7 +23,7 @@ class ContentModl extends Modl {
 		if(!empty($_SPI)) {
 			/* update url */
 		}
-		return $_SPI;
+		return $_SPI['content_content'];
 	}
 
 	public function add_content($data) {

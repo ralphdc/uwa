@@ -17,7 +17,7 @@ return array (
   array (
     'TYPE' => 'mysql',
     'USER' => 'root',
-    'PWD' => '87113447',
+    'PWD' => '',
     'HOST' => 'localhost',
     'PORT' => '3306',
     'NAME' => 'rzpackage',
@@ -67,7 +67,7 @@ return array (
   array (
     'PREFIX' => 'uwa_',
     'EXPIRE' => 3600,
-    'KEY' => 'bjjRCtMvOaDEIdC0',
+    'KEY' => '9X6xLtMrh355FBpb',
     'CLIENT_CHECK' => true,
   ),
   'SESSION' => 

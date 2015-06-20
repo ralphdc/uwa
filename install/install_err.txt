@@ -2,10 +2,10 @@
 //----------------------------------------
 //soft: UWA 2.X utf-8 version2.2.4
 //OS: WINNT
-//PHP_VERSION: 5.5.23
-//UPLOAD_MAX_FILESIZE: 2M
+//PHP_VERSION: 5.5.12
+//UPLOAD_MAX_FILESIZE: 64M
 //GD_VERSION: bundled (2.1.0 compatible)
-//DISK_SPACE: 79111M
+//DISK_SPACE: 101336M
 //----------------------------------------
 
 INSERT INTO `rz_pcategory` ( `pcategory_title`, `pcategory_group`, `pcategory_display_order`, `pcategory_keywords`, `pcategory_description`) VALUES

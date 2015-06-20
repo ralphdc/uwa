@@ -13,6 +13,8 @@
 defined('PFA_PATH') or exit('Access Denied');
 
 class IndexCtrlr extends Ctrlr {
+    
+    
 	public function __construct() {
 		parent::__construct();
 
@@ -39,14 +41,34 @@ class IndexCtrlr extends Ctrlr {
 		$this->assign('_GCAP', GCAP);
 	}
 
+	
+	
+	
 	public function index() {
+	    
+	    
+	    $ASI = M('ad')->where(array('ad_space_id'=>6))->select();
+	    $this->assign('_ASI', $ASI);
+	    
+	    
+	    $content =M('Content')->get_contentInfo(1);
+	    $this->assign('Content', $content);
+	    
+	    //热销产品；
+	    $hotpros = M('Product')->where(array('product_focus'=>'on'))->select();
+	    $this->assign('hot', $hotpros);
+	    	
+	    $this->display('home/index');
+	    
+	    
+	    
 		$_o = M('Option')->get_option('core');
 		$_oi = M('Option')->get_option('index');
 
 		$this->assign('_GCAP', 'home@index/index');
-
 		/* allow index paging */
 		if($_oi['paging_switch']) {
+		   
 			/* get paging */
 			$_GET[C('VAR.PAGE')] = intval(ARequest::get(C('VAR.PAGE'))) ? intval(ARequest::get(C('VAR.PAGE'))) : 1;
 
@@ -67,7 +89,7 @@ class IndexCtrlr extends Ctrlr {
 			$p = new APage($rowsNum, $_oi['page_size'], Url::U('index/index?' . C('VAR.PAGE') . '=_page_'));
 			$this->assign('PAGING', $p->get_paging());
 			$limit = $p->get_limit();
-
+           
 			/* archive list */
 			$_AL = M('Archive')->get_archiveList($where, $order, $limit);
 			$this->assign('_L', $_AL);
@@ -75,9 +97,8 @@ class IndexCtrlr extends Ctrlr {
 			/* task */
 			$this->assign('TASK', 'build_html_index&' . C('VAR.PAGE') . '=' . ARequest::get(C('VAR.PAGE')));
             
-			$contents = M('Content')->where(array('content_id'=>1))->select();
-			print_r($contents);
-			$this->assign('CONTE', $contents['content_content']);
+			
+			
 			
 			if('clip' == ARequest::get('type')) {
 				$this->display('home/clip/' . $_oi['tpl_paging']);
@@ -103,8 +124,14 @@ class IndexCtrlr extends Ctrlr {
             $content =M('Content')->get_contentInfo($displayContent);
 			/* task */
 			$this->assign('TASK', 'build_html_index');
-			$this->assign('CONTE', $content['content_content']);
-			$this->display('home/' . $_oi['tpl']);
+			
+			
+			
+			$contents = M('Content')->where(array('content_id'=>1))->select();
+			$this->assign('CONTE', $contents['content_content']);
+			
+			
+			
 		}
 	}
 }

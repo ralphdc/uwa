@@ -209,7 +209,7 @@ class Collector {
  * Usage 2
  * -----------------------------------------------------------------------------
  * $spider = get_instance('Collector');
- * $url = 'http://tr.asthis.net/';
+ * $url = 'http://tr.rzpackage.com/';
  * $spider->add_fieldSet('title', '<title>{title}</title>', false, array('如斯', 'AsThis'));
  * $spider->add_fieldSet('syno', '<th><a href="\S+">{syno}</a>', true, '',true);
  * $spider->add_fieldSet('author','cblee');

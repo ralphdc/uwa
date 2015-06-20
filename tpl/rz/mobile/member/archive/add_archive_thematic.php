@@ -14,7 +14,7 @@
 <link rel="stylesheet" type="text/css" href="{-:*__PUBLIC__-}js/dialog/artdialog.css" />
 <link rel="stylesheet" type="text/css" href="{-:*__PUBLIC__-}js/calendar/calendar.css" />
 <script src="{-:*__PUBLIC__-}js/calendar/calendar.js"></script>
-<script src="{-:*__PUBLIC__-}js/calendar/lang/{-:+lang-}.js"></script>
+<script src="{-:*__PUBLIC__-}js/calendar/lang/zh-cn.js"></script>
 </head>
 
 <body>

@@ -21,6 +21,7 @@
 				<th scope="col">{-:@TYPE-}</th>
 				<th scope="col" width="90">{-:@STATUS-}</th>
 				<th scope="col">{-:@MANAGE-}</th>
+				<th scope="col">操作</th>
 			</tr>
 			{-foreach:$_ASL,$as-}
 			<tr>

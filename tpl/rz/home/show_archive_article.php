@@ -4,7 +4,6 @@
 <meta charset="utf-8" />
 <title>{-:$_V['a_title']-} - {-:$_V['ac_name']-} - {-:$_SITE['name']-}</title>
 <link rel="stylesheet" type="text/css" href="{-:*__THEME__-}home/css/rz.css" />
-<link rel="stylesheet" type="text/css" href="{-:*__THEME__-}home/css/c.css" />
 <link rel="stylesheet" type="text/css" href="{-:*__THEME__-}home/js/snsshare/snsshare.css" />
 <meta name="keywords" content="{-:$_V['a_keywords']-},{-:$_V['ac_keywords']-},{-:$_SITE['keywords']-}" />
 <meta name="description" content="{-:$_V['a_description']-}" />
@@ -12,11 +11,9 @@
 
 <body>
 {-include:header-}
-<div class="position m w_960"><span>{-:@POSITION-}</span>{-include:clip/current_position-}</div>
-<div class="h_10 o_h"></div>
 <div class="center">
 	<div class="main">
-        <div class="crumbs"><a href="#">首页</a> > 最新资讯</div>
+        <div class="crumbs"><a href="#"><span>{-:@POSITION-}</span>{-include:clip/current_position-}</div>
         
         <div class="list">
         	<h2>最新资讯</h2>

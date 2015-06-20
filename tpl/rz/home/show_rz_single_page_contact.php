@@ -11,13 +11,12 @@
 <body>
 {-include:header-}
 <div class="banner contact">
-	<uwa:ad id="16">
+	<uwa:ad id="13">
 </div>
 
 <div class="center">
 	<div class="main">
-        <div class="crumbs"><a href="#">首页</a> > 联系我们</div>
-        
+         <div class="crumbs"><a href="/">{-:@POSITION-}</a> > {-include:clip/current_position-}</div>
         <div class="list">
             <div class="about_text">
                 <div>

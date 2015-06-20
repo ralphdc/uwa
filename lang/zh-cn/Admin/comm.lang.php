@@ -1515,7 +1515,7 @@ return array (
 /* {uwa_path}/tpl/default/admin/option/edit_option_site.php */
   'SITE_NAME_TIP' => '网站名称',
   'SITE_HOST' => '网站地址',
-  'SITE_HOST_TIP' => '网站地址, 如http://asthis.net',
+  'SITE_HOST_TIP' => '网站地址, 如http://rzpackage.com',
   'SITE_LOGO_MOBILE' => '移动网站 Logo',
   'SITE_LANGUAGE' => '语言',
   'SITE_LANGUAGE_TIP' => '网站默认语言',
@@ -1564,7 +1564,7 @@ return array (
   'DEAL_SELECTED' => '处理所选',
 /* {uwa_path}/tpl/default/admin/show_system_info.php */
   'WELCOME' => '欢迎',
-  'UWA_WELCOME' => '欢迎进入 <strong>{$soft_name}</strong> 后台管理系统.',
+  'UWA_WELCOME' => '欢迎进入 <strong>锐志包装</strong> 后台管理系统.',
   'SITE_SAFE_TIP' => '网站安全提示',
   'LATEST_ADMIN_LOG' => '最新管理员日志',
   'MORE' => '更多',

@@ -1,8 +1,0 @@
-/*s: vote */
-.aul_vote{padding:0 20px}
-.aul_vote li{padding:10px 0;border-bottom:1px solid #eee}
-	.vote_description{}
-	.vote_votes_bar_wppr{padding:2px;width:500px;height:16px;background:#eee;box-shadow:0 0 4px rgba(0,0,0,.4) inset;border-radius:4px}
-		.vote_votes_bar {height:16px;background:#3d6dcc;box-shadow:0 0 2px rgba(0,0,0,.4);border-radius:2px}
-/*e: vote */
-

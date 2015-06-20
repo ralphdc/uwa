@@ -9,6 +9,7 @@
 <link rel="stylesheet" type="text/css" href="{-:*__PUBLIC__-}js/calendar/calendar.css" />
 <script src="{-:*__PUBLIC__-}js/calendar/calendar.js"></script>
 <script src="{-:*__PUBLIC__-}js/calendar/lang/zh-cn.js"></script>
+<script src="{-:*__PUBLIC__-}js/jquery.js"></script>
 </head>
 <body>
 <form id="formEdit" action="" method="post">
@@ -42,8 +43,70 @@
 			</tr>
 			
 			<tr>
-				<td class="inputTitle">{-:@PRODUCT-} <span class="fc_gry">{-:@PRODUCT_PRODUCT_TIP-}</span></td>
+				<td class="inputArea">
+				    <select name="product_parent" id="product_parent">
+				    {-foreach:$parent_category,$p-}
+				        <option value="{-:$p['pcategory_id']-}">{-:$p['pcategory_title']-}</option>
+				    {-:/foreach-}
+				    </select>
+				    <p>先选择一级分类，然后选择一级分类下面的二级分类。如没有分类，请先添加！</p>
+				</td>
+				<td class="inputTip">
+					{-:@PRODUCT_PARENT_CATEGORY_TIP-}
+				</td>
+			</tr>
+			<script type="text/javascript">
+					$("#product_parent").change(function(){
+						$("#category-notice").html('');
+						var pid = $(this).val();
+						$.post("{-url:product/checkcategory-}",{'pid':pid},function(data){
+							var res = eval("("+data+")");
+							if(res.result){
+								alert(res.message)
+							}else{
+								var result = res.message;
+								doms = '';
+								for(i=0; i<result.length; i++){
+									doms += "<option value='"+result[i].ccategory_id+"'>"+result[i].ccategory_title+"</opiton>";
+								}
+								$('#product_child').html(doms);
+								
+							}
+						})
+					})
+					
+					$(document).ready(function(){
+						var pid = $("#product_parent").val();
+						$.post("{-url:product/checkcategory-}",{'pid':pid},function(data){
+							var res = eval("("+data+")");
+							if(res.result){
+								$("#category-notice").html(res.message);
+							}else{
+								var result = res.message;
+								doms = '';
+								for(i=0; i<result.length; i++){
+									doms += "<option value='"+result[i].ccategory_id+"'>"+result[i].ccategory_title+"</opiton>";
+								}
+								$('#product_child').html(doms);
+							}
+						})
+					})
+			</script>
+			<tr>
+				<td class="inputTitle">{-:@PRODUCT_CHILD_CATEGORY-}</td>
 				<td class=""></td>
+			</tr>
+			<tr>
+				<td class="inputArea">
+				    <select name="product_child" id="product_child">
+				   
+				    </select><span id="category-notice"></span>
+				</td>
+				
+				<td class="inputTip">
+					{-:@PRODUCT_CHILD_CATEGORY_TIP-}
+					
+				</td>
 			</tr>
 			<tr>
 					<td class="inputTitle">{-:@THUMB-}</td>
@@ -62,18 +125,19 @@
 						<span id="product_img_finder" to="#product_img" preview="#product_img_preview" typeset='image' class="btn_l finder">{-:@BROWSE_SERVER-}</span>
 					</td>
 				</tr>
+				<tr>
+				<td colspan="2" class="inputArea"  >
+					<span style="font-weight: bold; color:#FF0000;">是否设置为热销产品： </span>
+					<span><label for="product_yes">是</label><input id="product_yes" type="radio" name="product_focus" vaule="on" {-if:$_SPI['product_focus']=='on'-}checked{-:/if-} /></span>
+					&nbsp;&nbsp;&nbsp;&nbsp;<span><label for="product_no">否</label><input id="product_no" type="radio" name="product_focus" vaule="off"  {-if:$_SPI['product_focus']=='off'-}checked{-:/if-} /></span>
+				</td>
+			</tr>
 			<tr>
 				<td colspan="2" class="inputArea">
 					<textarea class="editor" name="product_content" style="width:95%;height:240px;">{-:$_SPI['product_content']|htmlspecialchars~@me-}</textarea>
 				</td>
 			</tr>
-			 <tr>
-				<td colspan="2" class="inputArea">
-					是否设置为热销产品： 
-					<span><label for="product_yes">是</label><input id="product_yes" type="radio" name="product_focus" vaule="on" {-if:$sp['product_focus']=='on'-}checked{-:/if-} /></span>
-					&nbsp;&nbsp;&nbsp;&nbsp;<span><label for="product_no">否</label><input id="product_no" type="radio" name="product_focus" vaule="off"  {-if:$sp['product_focus']=='off'-}checked{-:/if-} /></span>
-				</td>
-			</tr>
+			 
 			<tr>
 				<td class="inputTitle">{-:@KEYWORDS-}</td>
 				<td class=""></td>

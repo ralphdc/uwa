@@ -12,9 +12,13 @@
 <body>
 {-include:header-}
 
+<div class="banner product">
+	<uwa:ad id="11">
+</div>
 
 <div class="center">
 	<div class="main">
+	
         <div class="crumbs"><a href="#">首页</a> > 产品展示</div>
         <div class="list">
         	<h2>产品中心</h2>

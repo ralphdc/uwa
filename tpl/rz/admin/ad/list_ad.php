@@ -30,6 +30,7 @@
 				<th scope="col">{-:@AD_SPACE-}</th>
 				<th scope="col">{-:@TIME_LIMIT-}</th>
 				<th scope="col">{-:@MANAGE-}</th>
+				
 			</tr>
 			{-foreach:$_AL,$a-}
 			<tr>

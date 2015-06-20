@@ -16,7 +16,7 @@ return array (
   array (
     0 => '本文来自如斯',
     1 => 'UWA',
-    2 => 'asthis.net',
+    2 => 'trzpackage.com',
     3 => 'copyright UWA',
     4 => '内容来自 uwa',
   ),

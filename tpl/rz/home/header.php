@@ -10,18 +10,17 @@
 	</div>
 </div>
 
-<div id="nav_main">
-	<div class="m w_960">
-		<dl class="menu w_760 f_l">
-		<uwa:menu alias="main">
-			<dt class="a{-if:get_url($_GCAP) == $m['url']-} on{-:/if-}"><a href="{-:$m['url']-}" title="{-:$m['m_tip']-}" target="{-:$m['m_target']-}">{-:$m['m_name']-}</a></dt>
-			{-if:!empty($m['m_sub_menu'])-}<dd class="fs_13 fw_n"><ul>
-		{-foreach:$m['m_sub_menu'],$ms-}
-					<li class="a"><a href="{-:$ms['url']-}" title="{-:$ms['m_tip']-}" target="{-:$ms['m_target']-}">{-:$ms['m_name']-}</a></li>
-		{-:/foreach-}
-			</ul></dd>{-:/if-}
-		</uwa:menu>
-		</dl><!--/.menu-->
-	</div>
-</div><!--/#nav_main-->
 
+<div class="menu">
+    <div class="main">
+    	<div class="f_left nav">
+    	    <uwa:menu alias="main">
+        	<a href="{-:$m['url']-}" title="{-:$m['m_tip']-}" target="{-:$m['m_target']-}" class="{-if:get_url($_GCAP) == $m['url']-} active{-:/if-}">{-:$m['m_name']-}</a>
+        	</uwa:menu>
+        </div>
+        <div class="f_right search">
+        	<input type="button" value="" /><input type="text" value="" />
+        </div>
+        <div class="clear"></div>
+    </div>
+</div>

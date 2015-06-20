@@ -53,7 +53,10 @@ class ProductCtrlr extends ManageCtrlr {
 
 		$data = ARequest::get();
 		//$data['product_edit_time'] = time();
-
+        if(empty($data['product_parent']) || empty($data['product_child'])){
+            echo '请选择父分类和子分类，若没有则先添加父分类和子分类！';
+            exit;
+        }
 		$result = M('Product')->add_product($data);
 		if(!empty($result['error'])) {
 			M('AdminLog')->add_log(ASession::get('m_userid'), L('ADD_PRODUCT') . ': ' . $result['error'], 0);
@@ -80,7 +83,16 @@ class ProductCtrlr extends ManageCtrlr {
 			$this->error(L('ITEM_NOT_EXIST'), Url::U('product/list_product'));
 		}
 		$this->assign('_SPI', $_SPI);
-
+		
+		//获取一级目录；
+		$parent_categorys = M('Pcategory')->select(array('pcategory_id','pcategory_title'));
+		$this->assign('parent_category', $parent_categorys);
+		
+		//获取二级目录；
+		$child_categorys = M('Ccategory')->select(array('ccategory_id','ccategory_title'));
+		$this->assign('child_category', $child_categorys);
+		
+		
 		$this->display();
 	}
 	public function edit_product_do() {

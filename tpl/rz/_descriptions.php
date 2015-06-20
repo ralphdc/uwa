@@ -4,7 +4,7 @@ return array (
   array (
     'name' => '默认模板',
     'author' => 'AsThis',
-    'author_site' => 'http://asthis.net/',
+    'author_site' => 'http://rzpackage.com/',
     'version' => '1.2.0',
   ),
   'file_description' => 

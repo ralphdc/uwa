@@ -11,14 +11,13 @@
 <body>
 {-include:header-}
 <div class="banner intr">
-	<uwa:ad id="15">
+	<uwa:ad id="12">
 </div>
 
 <div class="center">
 	<div class="main">
-        <div class="crumbs"><a href="#">首页</a> > 应用介绍</div>
+        <div class="crumbs"><a href="/">{-:@POSITION-}</a> > {-include:clip/current_position-}</div>
         <div class="list">
-		<h2>应用介绍</h2>
             <div class="about_text">
                 <div>
                     {-:$_V['sp_content']-}

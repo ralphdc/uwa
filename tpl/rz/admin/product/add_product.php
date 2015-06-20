@@ -123,18 +123,19 @@
 						<span id="product_img_finder" to="#product_img" preview="#product_img_preview" typeset='image' class="btn_l finder">{-:@BROWSE_SERVER-}</span>
 					</td>
 				</tr>
+				<tr>
+				<td colspan="2" class="inputArea">
+					<span style="font-weight: bold;color:#FF0000;">是否设置为热销产品： </span>
+					<span><label for="product_yes">是</label><input id="product_yes" type="radio" name="product_focus" vaule="on" /></span>
+					&nbsp;&nbsp;&nbsp;&nbsp;<span><label for="product_no">否</label><input id="product_no" type="radio" name="product_focus" vaule="off" checked="checked" /></span>
+				</td>
+			</tr>
 			<tr>
 				<td colspan="2" class="inputArea">
 					<textarea class="editor" name="product_content" style="width:95%;height:240px;"></textarea>
 				</td>
 			</tr>
-			<tr>
-				<td colspan="2" class="inputArea">
-					是否设置为热销产品： 
-					<span><label for="product_yes">是</label><input id="product_yes" type="radio" name="product_focus" vaule="1" /></span>
-					&nbsp;&nbsp;&nbsp;&nbsp;<span><label for="product_no">否</label><input id="product_no" type="radio" name="product_focus" vaule="0" /></span>
-				</td>
-			</tr>
+			
 			<tr>
 				<td class="inputTitle">{-:@KEYWORDS-}</td>
 				<td class=""></td>
@@ -165,7 +166,7 @@
 <div id="operation">
 	<input name="timeKey" type="hidden" value="{-:$_TK['timeKey']-}">
 	<input name="token" type="hidden" value="{-:$_TK['token']-}">
-	<span class="btn_b submit" action="{-url:product/add_product_do-}" to="#formAdd">{-:@SUBMIT-}</span>
+	<span class="btn_b submit product_submit" action="{-url:product/add_product_do-}" to="#formAdd">{-:@SUBMIT-}</span>
 	<input class="btn_l" type="reset" value="{-:@RESET-}" />
 	<a class="btn_l" href="{-url:product/list_product-}">{-:@BACK-}</a>
 </div>
@@ -227,7 +228,16 @@ l_archive_duplicate_tip = '{-:@ARCHIVE_DUPLICATE_TIP-}';
 
 var url_get_channel_select = '{-url:ajax/get_channel_select-}';
 </script>
-
+<script type="text/javascript">
+	$(".product_submit").click(function(){
+		var parent_val = $("#product_parent").val();
+		var child_val = $("#product_child").val();
+		if(parent_val == '' || parent_val == undefined || child_val=='' || child_val ==undefined){
+				alert('请选择产品所属的父分类和子分类');
+				return false;
+			}
+	})
+</script>
 <script src="{-:*__THEME__-}admin/js/c.js"></script>
 <script src="{-:*__THEME__-}admin/js/cal.js"></script>
 <script src="{-:*__THEME__-}admin/js/u.js"></script>

@@ -345,7 +345,7 @@ class AUpload {
  * );
  * print_r($upload = $_upload->do_upload($field));
  * print_r($upload = $_upload->do_upload($field1, $uploadDir1));
- * print_r($remote = $_upload->save_remoteImg('http://asthis.net/logo.png'));
+ * print_r($remote = $_upload->save_remoteImg('http://rzpackage.com/logo.png'));
  * ----------------------------------------
  * <form action="" method="post" enctype="multipart/form-data">
  * <input type="hidden" name="MAX_FILE_SIZE" value="1000000" />

@@ -59,11 +59,11 @@
 			<dd>
 				<div class="tabCntnt">
 					<ul>
-						<li>{-:@SOFT_NAME-}: <span class="status p_0_2">{-:*SOFT_NAME-}</span></li>
+						<li>{-:@SOFT_NAME-}: <span class="status p_0_2">锐志包装网站管理后台系统</span></li>
 						<li>{-:@SOFT_VERSION-}: <span class="status p_0_2">{-:*SOFT_VERSION-}</span> <span class="btn_l" onClick="check_new_version();">{-:@CHECK_NEW_VERSION-}</span> <span id="check_result"></span></li>
 						<li>{-:@SOFT_CODENAME-}: <span class="status p_0_2">{-:*SOFT_CODENAME-}</span></li>
 						<li>{-:@SOFT_CHARSET-}: <span class="status p_0_2">{-:*SOFT_CHARSET-}</span></li>
-						<li>{-:@SOFT_AUTHOR-}: <a target="_blank" href="{-:*SOFT_AUTHOR_URL-}"><span class="status p_0_2">{-:*SOFT_AUTHOR-}</span></a></li>
+						<li>{-:@SOFT_AUTHOR-}: <a target="_blank" href="javascript:void(0)"><span class="status p_0_2">锐志包装集团</span></a></li>
 					</ul>
 				</div><!--/.tabCntnt-->
 				<div class="tabCntnt">
@@ -98,11 +98,10 @@
 				<div class="tabCntnt">
 					<ul>
 						<li><span class="fw_b fs_14"></span></li>
-						<li>{-:@LICENCE_DOMAIN-}: <span class="status p_0_2">{-:$LICENCE['domain']-}</span></li>
-						<li>{-:@LICENCE_KEY-}: <span class="status p_0_2 fs_11">{-:$LICENCE['key']-}</span></li>
+						<li>{-:@LICENCE_DOMAIN-}: <span class="status p_0_2">www.rzpackage.com</span></li>
+						<li>{-:@LICENCE_KEY-}: <span class="status p_0_2 fs_11">RK32D-P234B-JGG7Y-P7M6R-4J9PW</span></li>
 					</ul>
 					<div style="height:10px;clear:both;overflow:hidden"></div>
-					<div>{-:@AUTHORIZED_TIP|url~*SOFT_AUTHORIZATION_URL-}</div>
 				</div><!--/.tabCntnt-->
 				{-:/if-}
 			</dd>

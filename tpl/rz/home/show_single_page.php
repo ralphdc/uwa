@@ -3,7 +3,6 @@
 <head>
 <meta charset="utf-8" />
 <title>{-:$_V['sp_title']-} - {-:$_SITE['name']-}</title>
-<link rel="stylesheet" type="text/css" href="{-:*__THEME__-}home/css/c.css" />
 <link rel="stylesheet" type="text/css" href="{-:*__THEME__-}home/css/rz.css" />
 <meta name="keywords" content="{-:$_V['sp_keywords']-},{-:$_SITE['keywords']-}" />
 <meta name="description" content="{-:$_V['sp_description']-}" />
@@ -11,12 +10,14 @@
 
 <body>
 {-include:header-}
-<div class="h_10 o_h"></div>
+
+<div class="banner about">
+	<uwa:ad id="7">
+</div>
 
 <div class="center">
 	<div class="main">
-        <div class="position m w_960"><span>{-:@POSITION-}</span>{-include:clip/current_position-}</div>
-        
+         <div class="crumbs"><a href="#">{-:@POSITION-}</a> > {-include:clip/current_position-}</div>
         <div class="list">
             <div class="about_text">
             	{-:$_V['sp_content']-}

@@ -12,7 +12,7 @@
 
 <p>&nbsp;</p>
 
-<p style="text-align:right"><a href="http://~site_host~" style="color:#68c;" target="_blank">~site_name~</a><br />
+<p style="text-align:right"><a href="site_host~" style="color:#68c;" target="_blank">~site_name~</a><br />
 <span style="color:#666">~datetime~</span></p>
 </div>
 
